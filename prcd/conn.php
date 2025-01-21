@@ -1,7 +1,7 @@
 <?php
 
     $servername="localhost";
-    $database="superissste"; //solo se quitó para conexión remota
+    $database="ventaVP"; //solo se quitó para conexión remota
     $username="root";
     $password="";
 
