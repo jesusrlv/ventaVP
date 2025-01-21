@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+button {
+    margin: 20px auto;
+    display: block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+</style>
+<body>
+    <h1>Carrito de Compras</h1>
+    <table id="cartTable">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Total</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="cartBody">
+            <!-- Las filas del carrito se agregarán aquí dinámicamente -->
+        </tbody>
+    </table>
+    <button id="sendCart">Enviar Carrito</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const cartBody = document.getElementById("cartBody");
+    const sendCart = document.getElementById("sendCart");
+
+    // Ejemplo de productos, este grid crea la tabla
+    const products = [
+        { id: 1, name: "Producto A", price: 100 },
+        { id: 2, name: "Producto B", price: 200 },
+        { id: 3, name: "Producto C", price: 150 },
+    ];
+
+    // Agregar productos al grid
+    products.forEach(product => {
+        const row = document.createElement("tr");
+        row.dataset.productId = product.id;
+
+        row.innerHTML = `
+            <td>${product.name}</td>
+            <td><input type="number" value="1" min="1" class="quantity"></td>
+            <td>${product.price}</td>
+            <td class="total">${product.price}</td>
+            <td><button class="remove">Eliminar</button></td>
+        `;
+
+        cartBody.appendChild(row);
+    });
+
+    // Actualizar el total cuando cambia la cantidad
+    cartBody.addEventListener("input", (e) => {
+        if (e.target.classList.contains("quantity")) {
+            const row = e.target.closest("tr");
+            const price = parseFloat(row.children[2].textContent);
+            const quantity = parseInt(e.target.value);
+            const totalCell = row.querySelector(".total");
+
+            totalCell.textContent = (price * quantity).toFixed(2);
+        }
+    });
+
+    // Eliminar un producto del carrito
+    cartBody.addEventListener("click", (e) => {
+        if (e.target.classList.contains("remove")) {
+            e.target.closest("tr").remove();
+        }
+    });
+
+    // Enviar carrito por AJAX
+    sendCart.addEventListener("click", () => {
+        const cartData = [];
+
+        document.querySelectorAll("#cartBody tr").forEach(row => {
+            const productId = row.dataset.productId;
+            const quantity = row.querySelector(".quantity").value;
+            const total = row.querySelector(".total").textContent;
+
+            cartData.push({
+                productId,
+                quantity,
+                total
+            });
+        });
+
+        // Enviar al servidor
+        fetch("save_cart.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(cartData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message || "Carrito enviado con éxito");
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+    });
+});
+
+</script>

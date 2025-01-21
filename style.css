@@ -1,0 +1,124 @@
+body{
+  background-image: url(img/background3.jpg);
+  background-repeat: repeat-y;
+  background-size: 100%;
+  
+}
+#fotosTienda{
+    width: 100%; /* La imagen ocupa el ancho completo del div */
+    height: 100%; /* La imagen ocupa el alto completo del div */
+    object-fit: cover; /* Ajusta la imagen para que llene el contenedor sin deformarse */
+    object-position: center; /* Alinea la imagen hacia la parte superior */
+    display: block; /* Elimina posibles espacios en línea alrededor de la imagen */
+
+}
+
+/* card code */
+.container-card2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-card3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-card4 {
+  max-width: 1200px; /* Ajusta el ancho máximo del contenedor */
+  width: 100%;
+}
+.cards-container {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  .card2 {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .card2 h3 {
+    font-size: 1.2em;
+    margin: 0;
+    color: #333;
+  }
+
+  .card2 p {
+    font-size: 0.9em;
+    color: #555;
+    margin: 10px 0;
+  }
+
+  .card2 .add-text {
+    font-size: 0.85em;
+    color: #007bff;
+    cursor: pointer;
+    margin-top: auto;
+  }
+
+  .card2 .edit-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .card2 .menu-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.2em;
+    color: #888;
+    cursor: pointer;
+  }
+
+  #imagenCatalogo{
+   
+    width: 100%; /* Asegura que ocupe el ancho completo del card */
+    height: 200px; /* Ajusta esta altura según tu diseño */
+    object-fit: cover;
+  
+  }
+
+  .imagenOfertas{
+    width: 100%; /* Asegura que ocupe el ancho completo del card */
+    height: 100vh; /* Ajusta esta altura según tu diseño */
+    object-fit: cover;
+  }
+
+  /* Animación para las cards */
+@keyframes slideInLeft {
+  from {
+      transform: translateX(-100%);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+/* Clase que aplica la animación */
+.card-slide-in {
+  animation: slideInLeft 0.8s ease-out; /* Duración y suavidad de la animación */
+}
