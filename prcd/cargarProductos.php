@@ -12,7 +12,7 @@ $resultado = $conn->query($sql);
 while($row = $resultado->fetch_assoc()){
     echo '
 <div class="col-md-3 col-sm-12">
-    <div class="card3">
+    <div class="card1000">
         <img src="productos/'.$row['ruta'].'" class="card-img-top" alt="..." id="imagenCatalogo">
         <div class="card-body">
             <h5 class="card-title">
