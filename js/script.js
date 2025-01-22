@@ -10,11 +10,13 @@ function cargaCategoria(){
 }
 
 function cargaProductosRandom(){
+
     $.ajax({
         type: "POST",
         url: "prcd/cargarProductosRandom.php",
         dataType: "html",
         success: function(data){
+            
             $('#inventario').fadeIn(1000).html(data);    
         }
     });
@@ -36,13 +38,13 @@ function cargaProductos(producto,num){
             // $('#inventario').fadeIn(1000).html(data); 
             document.getElementById('inventario').innerHTML = "";
             $('#inventario').html(data);
-
-        // Aplica la clase de animación a cada card después de insertarlas.
-        $('.card').each(function (index) {
-            $(this).addClass('card-slide-in');
-            // Añadir un retraso para cada tarjeta (efecto escalonado).
-            $(this).css('animation-delay', `${index * 0.1}s`);
-        });
+            
+            // Aplica la clase de animación a cada card después de insertarlas.
+            $('.card').each(function (index) {
+                $(this).addClass('card-slide-in');
+                // Añadir un retraso para cada tarjeta (efecto escalonado).
+                $(this).css('animation-delay', `${index * 0.01}s`);
+            });
         }
     });
 }
