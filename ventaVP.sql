@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 21-01-2025 a las 23:21:25
+-- Tiempo de generación: 23-01-2025 a las 23:53:34
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.28
 
@@ -65,7 +65,21 @@ CREATE TABLE `categoria` (
 
 INSERT INTO `categoria` (`id`, `categoria`) VALUES
 (1, 'Categoría 1'),
-(2, 'Categoría 2');
+(2, 'IPLAY BIG MAX'),
+(3, 'IPLAY XBOX'),
+(4, 'IPLAY XBOX PRO'),
+(5, 'MASSKING ULTRA'),
+(6, 'NASTY 8.5'),
+(7, 'VHILL 3000'),
+(8, 'VHILL 6000'),
+(9, 'VHILL 12000'),
+(10, 'WONDER G4'),
+(11, 'WONDER G20'),
+(12, 'WONDER RACE'),
+(13, 'WAKA SMASH'),
+(14, 'WAKA 16000'),
+(15, 'WAKA 18000'),
+(16, 'WAKA 36000');
 
 -- --------------------------------------------------------
 
@@ -89,30 +103,30 @@ CREATE TABLE `inventario` (
 --
 
 INSERT INTO `inventario` (`id`, `codigo`, `descripcion`, `existencia`, `precio`, `categoria`, `ruta`, `oferta`) VALUES
-(1, '0001', 'Producto 1', 1, '1', 'Categoría 1', 'producto_01.jpg', 0),
-(2, '0002', 'Producto 2', 1, '1', 'Categoría 2', 'producto_02.jpg', 0),
-(3, '0003', 'Producto 3', 1, '1', 'Categoría 3', 'producto_03.jpg', 0),
-(4, '0004', 'Producto 4', 1, '1', 'Categoría 1', 'producto_04.jpg', 0),
-(5, '0001', 'Producto 1', 1, '1', 'Categoría 1', 'producto_01.jpg', 0),
-(6, '0002', 'Producto 2', 1, '1', 'Categoría 2', 'producto_02.jpg', 1),
-(7, '0003', 'Producto 3', 1, '1', 'Categoría 3', 'producto_03.jpg', 0),
-(8, '0004', 'Producto 4', 1, '1', 'Categoría 1', 'producto_04.jpg', 0),
-(9, '0001', 'Producto 1', 1, '1', 'Categoría 1', 'producto_01.jpg', 0),
-(10, '0002', 'Producto 2', 1, '1', 'Categoría 2', 'producto_02.jpg', 0),
-(11, '0003', 'Producto 3', 1, '1', 'Categoría 3', 'producto_03.jpg', 0),
-(12, '0004', 'Producto 4', 1, '1', 'Categoría 1', 'producto_04.jpg', 0),
-(13, '0001', 'Producto 1', 1, '1', 'Categoría 1', 'producto_01.jpg', 0),
-(14, '0002', 'Producto 2', 1, '1', 'Categoría 2', 'producto_02.jpg', 0),
-(15, '0003', 'Producto 3', 1, '1', 'Categoría 3', 'producto_03.jpg', 0),
-(16, '0004', 'Producto 4', 1, '1', 'Categoría 1', 'producto_04.jpg', 0),
+(1, '0001', 'IPLAY MAX', 1, '1', 'Categoría 1', 'Iplay Max.JPG', 0),
+(2, '0002', 'Producto', 1, '1', 'IPLAY BIG MAX', 'producto_03.jpg', 0),
+(3, '0003', 'IPLAY XBOX', 1, '1', 'IPLAY XBOX', 'Iplay xbox.WEBP', 0),
+(4, '0004', 'IPLAY XBOX PRO', 1, '1', 'IPLAY XBOX PRO', 'Iplay xbox pro.WEBP', 0),
+(5, '0001', 'MASSKING ULTRA', 1, '1', 'MASSKING ULTRA', 'Maskking ultra.JPG', 0),
+(6, '0002', 'NASTY 8.5', 1, '1', 'NASTY 8.5', 'Nasty 8_5.PNG', 1),
+(7, '0003', 'VHILL 3000', 1, '1', 'VHILL 3000', 'Vhill 3000.JPG', 0),
+(8, '0004', 'VHILL 6000', 1, '1', 'VHILL 6000', 'Vhill 6000.PNG', 0),
+(9, '0001', 'VHILL 12000', 1, '1', 'VHILL 12000', 'Vhill 12000.PNG', 0),
+(10, '0002', 'WONDER G4', 1, '1', 'WONDER G4', 'Wonder G4.JPG', 0),
+(11, '0003', 'WONDER G20', 1, '1', 'WONDER G20', 'Wonder G20.PNG', 0),
+(12, '0004', 'WONDER RACE', 1, '1', 'WONDER RACE', 'Wonder race.PNG', 0),
+(13, '0001', 'WAKA SMASH', 1, '1', 'WAKA SMASH', 'Waka smash.JPG', 0),
+(14, '0002', 'WAKA 16000', 1, '1', 'WAKA 16000', 'Waka 16000.PNG', 0),
+(15, '0003', 'WAKA 18000', 1, '1', 'WAKA 18000', 'Waka 18000.JPG', 0),
+(16, '0004', 'WAKA 36000', 1, '1', 'WAKA 36000', 'Waka 36000.JPG', 0),
 (17, '0001', 'Producto 1', 1, '1', 'Categoría 1', 'producto_01.jpg', 0),
 (18, '0004', 'Producto 4', 1, '1', 'Categoría 1', 'producto_04.jpg', 0),
 (19, '0001', 'Producto 1', 1, '1', 'Categoría 1', 'producto_01.jpg', 0),
 (20, '0004', 'Producto 4', 1, '1', 'Categoría 1', 'producto_04.jpg', 0),
 (21, '0004', 'Producto 4', 1, '1', 'Categoría 1', 'producto_04.jpg', 0),
 (22, '0003', 'Producto 3', 1, '1', 'Categoría 3', 'producto_03.jpg', 1),
-(23, '0004', 'Producto 4', 1, '1', 'Categoría 1', 'producto_04.jpg', 0),
-(24, '0001', 'Producto 1', 1, '1', 'Categoría 1', 'producto_01.jpg', 0),
+(23, '0004', 'Producto 4', 1, '1', 'IPLAY BIG MAX', 'producto_04.jpg', 0),
+(24, '0001', 'Producto 1', 1, '1', 'IPLAY BIG MAX', 'producto_01.jpg', 0),
 (25, '0004', 'Producto 4', 1, '1', 'Categoría 1', 'producto_04.jpg', 1),
 (26, '0001', 'Producto 1', 1, '1', 'Categoría 1', 'producto_01.jpg', 0),
 (27, '0004', 'Producto 4', 1, '1', 'Categoría 1', 'producto_04.jpg', 0),
@@ -221,7 +235,7 @@ ALTER TABLE `carrito`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `inventario`
