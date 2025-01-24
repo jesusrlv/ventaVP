@@ -3,7 +3,7 @@
 require('../prcd/conn.php');
 
 $producto = $_POST['producto'];
-$num = $_POST['num'];
+$num = ($_POST['num'])*12;
 // $sql = "SELECT COUNT(*) FROM inventario WHERE categoria = '$producto' ORDER BY id ASC LIMIT 12,'$num'";
 $sql = "SELECT * FROM inventario WHERE categoria = '$producto' ORDER BY id ASC LIMIT 12 OFFSET $num";
 
