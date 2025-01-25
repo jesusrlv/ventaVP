@@ -13,7 +13,7 @@ while($row = $resultado->fetch_assoc()){
     echo '
 <div class="col-md-3 col-sm-12">
     <div class="card cardDos">
-        <img src="productos/'.$row['ruta'].'" class="card-img-top" alt="..." id="imagenCatalogo">
+        <img src="productos/'.$row['ruta'].'" class="card-img-top p-2" alt="..." id="imagenCatalogo">
         <div class="card-body">
             <h5 class="card-title">
                 <span class="badge text-bg-primary">'.$row['descripcion'].'</span>

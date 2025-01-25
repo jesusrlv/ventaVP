@@ -62,11 +62,23 @@ body{
   }
 
   .cardDos{
-    width: 18rem; 
-    height: 37vh; 
+    /* width: 18rem;  */
+    /* height: 37vh;  */
     border-color: #f79e00; 
     background-color:#333333;
+
+    height: auto; /* Permite que la tarjeta crezca según el contenido */
+    min-height: 350px; /* Ajusta según tu diseño */
+    max-height: 400px; /* Establece un límite */
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se alineen verticalmente */
+    justify-content: space-between; /* Distribuye los elementos dentro de la tarjeta */
+
   }
+  .card-footer {
+    text-align: center; /* Centra el contenido dentro del footer */
+}
+
 
   .card2 h3 {
     font-size: 1.2em;
@@ -112,13 +124,15 @@ body{
     cursor: pointer;
   }
 
-  #imagenCatalogo{
-   
-    width: 100%; /* Asegura que ocupe el ancho completo del card */
-    height: 200px; /* Ajusta esta altura según tu diseño */
+  #imagenCatalogo {
+    width: 80%;
+    height: 200px; /* Ajusta según tu diseño */
     object-fit: cover;
-  
-  }
+    display: block; /* Asegura que se comporte como un bloque */
+    margin: auto; /* Centra horizontalmente */
+    position: relative; /* Necesario para centrarlo verticalmente si hay un contenedor con flexbox */
+}
+
 
   .imagenOfertas{
     width: 100%; /* Asegura que ocupe el ancho completo del card */
@@ -161,6 +175,9 @@ body{
     height: 45vh; 
     border-color: #f79e00; 
     background-color:#333333;
+  }
+  #imagenCatalogo{
+    width: 50%;
   }
   
 }
