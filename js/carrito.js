@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(data => {
             Swal.fire({
                 title: "Carrito agregado, se confirma la compra",
-                text: "SUPERISSSTE",
+                text: "VAPE FACTORY",
                 icon: "success",
                 showCancelButton: false,
                 confirmButtonText: "Aceptar",

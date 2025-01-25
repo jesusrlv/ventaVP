@@ -52,7 +52,7 @@ if ($filas > 0){
 else{
     echo '
        <div class="carousel-item active">
-            <img src="img/superissste_no_ofertas.jpg" class="d-block w-100 h-100 " alt="..." style="object-fit: contain;">
+            <img src="img/logo_vape.png" class="d-block w-100 h-100 " alt="..." style="object-fit: contain;">
         </div>
         
         ';

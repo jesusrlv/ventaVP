@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Conexión a la base de datos
-    $mysqli = new mysqli("localhost", "root", "", "superissste");
+    $mysqli = new mysqli("localhost", "root", "", "ventaVP");
 
     if ($mysqli->connect_error) {
         echo json_encode(["message" => "Error de conexión: " . $mysqli->connect_error]);
