@@ -1,3 +1,11 @@
+function modalInventario(){
+
+    $("estado").modal("show");
+
+    // var valor = estadoMx;
+
+}
+
 function cargaCategoria(){
     $.ajax({
         type: "POST",
@@ -45,6 +53,17 @@ function cargaProductos(producto,num){
                 // Añadir un retraso para cada tarjeta (efecto escalonado).
                 $(this).css('animation-delay', `${index * 0.01}s`);
             });
+        }
+    });
+}
+
+function cargarCards(){
+    $.ajax({
+        type: "POST",
+        url: "prcd/cargarCards.php",
+        dataType: "html",
+        success: function(data){
+            $('#categoria').fadeIn(1000).html(data);    
         }
     });
 }
