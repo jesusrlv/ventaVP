@@ -1,8 +1,6 @@
 function modalInventario(){
 
-    $("estado").modal("show");
-
-    // var valor = estadoMx;
+    $("#estado").modal("show");
 
 }
 
