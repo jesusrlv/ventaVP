@@ -1,7 +1,31 @@
+function agregarCarrito(id){
+
+    var sabor = document.getElementById("sabor"+id).value;
+    $.ajax({
+        url: 'prcd/datosProductos.php',
+        type: 'POST',
+        dataType: 'json',
+        data: { 
+            sabor: sabor
+        },
+        success: function(data){
+            var datos = JSON.parse(JSON.stringify(data));
+            var precio = datos.precio;
+            var sabor = datos.sabor;
+            var id = datos.id;
+
+            console.log("Precio: "+precio + " " + sabor + " " + id);
+
+            carritoStore(id, sabor, precio);
+        }
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const cartBody = document.getElementById("cartBody");
     const sendCart = document.getElementById("sendCart");
     const totalDisplay = document.getElementById("total");
+
     let products = [];
     let sumar = 0;
 
@@ -39,8 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
         row.innerHTML = `
             <td class="fw-bold small">${detalle}</td>
             <td><input type="number" value="1" min="1" class="form-control quantity text-center"></td>
-            <td class="text-center small">${precio.toFixed(2)}</td>
-            <td class="text-center small total">${precio.toFixed(2)}</td>
+            <td class="text-center small">${precio}</td>
+            <td class="text-center small total">${precio}</td>
             <td><button class="btn btn-danger btn-sm remove"><i class="bi bi-trash"></i></button></td>
         `;
 
