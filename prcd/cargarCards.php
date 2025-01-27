@@ -6,7 +6,8 @@ $estado = $_POST['estadoMx'];
 
 $sql = "SELECT * FROM categoria ORDER BY id ASC";
 $resultado = $conn->query($sql);
-
+echo'
+<div class="row g-2 mb-2" id="categoria2">';
 while($row = $resultado->fetch_assoc()){
 $categoria = $row['categoria'];
     echo '
@@ -42,6 +43,8 @@ while($row2 = $resultado2->fetch_assoc()){
 </div>';
 
 }
+echo'
+ </div>';
 
 // <button class="btn btn-warning" type="button" onclick="carritoStore('.$row['id'].','.$row['precio'].')"><i class="bi bi-cart-plus-fill"></i> Carrito</button>
 

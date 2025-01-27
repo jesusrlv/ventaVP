@@ -173,6 +173,7 @@ body{
   .cardDos {
     width: 100%;
     max-height: 1000px;
+    margin-bottom: 50px;
     /* border-color: #f79e00;  */
     /* background-color:#333333; */
   }
