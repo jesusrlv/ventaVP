@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-01-2025 a las 08:01:17
+-- Tiempo de generación: 27-01-2025 a las 23:10:56
 -- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.29
+-- Versión de PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -48,7 +48,10 @@ INSERT INTO `carrito` (`id`, `producto_id`, `cantidad`, `total`, `fecha`, `id_ve
 (21, 10, 5, '5.00', '2024-12-18 05:46:49', '2024121806464963BE510D'),
 (22, 6, 7, '7.00', '2024-12-18 05:46:49', '2024121806464963BE510D'),
 (23, 245, 3, '2070.00', '2025-01-25 06:57:18', '202501250757183880D4CF'),
-(24, 246, 1, '690.00', '2025-01-25 06:57:18', '202501250757183880D4CF');
+(24, 246, 1, '690.00', '2025-01-25 06:57:18', '202501250757183880D4CF'),
+(25, 99, 1, '265.00', '2025-01-27 21:40:34', '20250127224034142750C7'),
+(26, 129, 1, '285.00', '2025-01-27 21:40:34', '20250127224034142750C7'),
+(27, 13, 1, '265.00', '2025-01-27 21:40:34', '20250127224034142750C7');
 
 -- --------------------------------------------------------
 
@@ -59,30 +62,31 @@ INSERT INTO `carrito` (`id`, `producto_id`, `cantidad`, `total`, `fecha`, `id_ve
 CREATE TABLE `categoria` (
   `id` int(11) NOT NULL,
   `categoria` varchar(75) COLLATE utf8_unicode_ci NOT NULL,
-  `img` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+  `img` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `precio` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categoria` (`id`, `categoria`, `img`) VALUES
-(1, 'IPLAY MAX', 'Iplay Max.JPG'),
-(2, 'IPLAY BIG MAX', 'Iplay big Max.PNG'),
-(3, 'IPLAY XBOX', 'Iplay xbox.WEBP'),
-(4, 'IPLAY XBOX PRO', 'Iplay xbox pro.WEBP'),
-(5, 'MASSKING ULTRA', 'Maskking ultra.JPG'),
-(6, 'NASTY 8.5', 'Nasty 8_5.PNG'),
-(7, 'VHILL 3000', 'Vhill 3000.JPG'),
-(8, 'VHILL 6000', 'Vhill 6000.PNG'),
-(9, 'VHILL 12000', 'Vhill 12000.PNG'),
-(10, 'WONDER G4', 'Wonder G4.JPG'),
-(11, 'WONDER G20', 'Wonder G20.PNG'),
-(12, 'WONDER RACE', 'Wonder race.PNG'),
-(13, 'WAKA SMASH', 'Waka smash.JPG'),
-(14, 'WAKA 16000', 'Waka 16000.PNG'),
-(15, 'WAKA 18000', 'Waka 18000.JPG'),
-(16, 'WAKA 36000', 'Waka 36000.JPG');
+INSERT INTO `categoria` (`id`, `categoria`, `img`, `precio`) VALUES
+(1, 'IPLAY MAX', 'Iplay_Max-removebg-preview.png', '265'),
+(2, 'IPLAY BIG MAX', 'Iplay big Max.PNG', '375'),
+(3, 'IPLAY XBOX', 'Iplay xbox.WEBP', '355'),
+(4, 'IPLAY XBOX PRO', 'Iplay xbox pro.WEBP', '410'),
+(5, 'MASSKING ULTRA', 'Maskking_ultra-removebg-preview.png', '265'),
+(6, 'NASTY 8.5', 'Nasty 8_5.PNG', '410'),
+(7, 'VHILL 3000', 'Vhill_3000-removebg-preview.png', '285'),
+(8, 'VHILL 6000', 'Vhill_6000-removebg-preview.png', '385'),
+(9, 'VHILL 12000', 'Vhill_12000-removebg-preview.png', '585'),
+(10, 'WONDER G4', 'Wonder_G4-removebg-preview.png', '365'),
+(11, 'WONDER G20', 'Wonder G20.PNG', '690'),
+(12, 'WONDER RACE', 'Wonder race.PNG', '590'),
+(13, 'WAKA SMASH', 'Waka_smash-removebg-preview.png', '1'),
+(14, 'WAKA 16000', 'Waka 16000.PNG', '690'),
+(15, 'WAKA 18000', 'Waka_18000-removebg-preview.png', '725'),
+(16, 'WAKA 36000', 'Waka_36000-removebg-preview.png', '790');
 
 -- --------------------------------------------------------
 
@@ -477,7 +481,8 @@ INSERT INTO `venta_completa` (`id`, `nombre_completo`, `direccion`, `telefono`, 
 (11, 'xxs', 'ssss', '223333', '2233ddsd@vdfd.com', '827839', '2024121806441559522A44'),
 (12, 'Jesús Rodolfo Leaños Villegas', 'Calle camino del pinar 111', '4915000', 'jesusrlv@gmail.com', '98762343', '2024121806464963BE510D'),
 (13, 'hh', 'hh', '888', 'hukk', '54387548', '2025012507500734C5DA6D'),
-(14, 'ds', 'ds', '8667', 'sds', '6465464564', '202501250757183880D4CF');
+(14, 'ds', 'ds', '8667', 'sds', '6465464564', '202501250757183880D4CF'),
+(15, 'dsds', 'sdsd', '23232323', 'sdsdsd@sdsds', '22222', '20250127224034142750C7');
 
 --
 -- Índices para tablas volcadas
@@ -521,7 +526,7 @@ ALTER TABLE `venta_completa`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -545,7 +550,7 @@ ALTER TABLE `usr`
 -- AUTO_INCREMENT de la tabla `venta_completa`
 --
 ALTER TABLE `venta_completa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
