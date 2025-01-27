@@ -55,13 +55,17 @@ function cargaProductos(producto,num){
     });
 }
 
-function cargarCards(){
+function cargarCards(estadoMx){
+    $("#estado").modal("hide");
     $.ajax({
         type: "POST",
         url: "prcd/cargarCards.php",
+        data:{
+            estadoMx:estadoMx
+        },
         dataType: "html",
         success: function(data){
-            $('#categoria').fadeIn(1000).html(data);    
+            $('#categoria2').fadeIn(1000).html(data);    
         }
     });
 }

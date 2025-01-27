@@ -115,7 +115,7 @@
     <link href="carousel.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
   </head>
-  <body onload="cargaCategoria();cargaProductosRandom();ofertas(); modalInventario()">
+  <body onload="cargaCategoria();cargaProductosRandom();ofertas();modalInventario();">
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -417,12 +417,9 @@
         <img src="img/logo_vape.png" class="bg-dark edit-button" style="border-radius: 50%;" alt="">
         <div class="menu-button">⋮</div>
       </div>
-  
-  
       
     </div>
   </div>
-
 
     <!-- START THE FEATURETTES -->
     <span id="ubicacion"></span>
@@ -454,6 +451,7 @@
       </div>
     </div>
 
+
     <hr class="featurette-divider mt-3">
     <span id="catalogo"></span>
     <div class="row featurette container-card3">
@@ -464,7 +462,7 @@
       </div>
       <div class="container container-card4">
         <p>
-          <div class="input-group mb-3">
+          <div class="input-group mb-3" hidden>
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-cart"></i></span>
             <select class="form-select" aria-label="Default select example" id="categoria" onchange="cargaProductos(this.value,0)">
             </select>
@@ -472,7 +470,7 @@
         </p>
         <hr>
         <!-- <span class="" id="contadorProductos"></span> -->
-        <div class="row g-3 mb-2" id="inventario">
+        <div class="row g-3 mb-2" id="categoria2">
 
         </div>
         <span class="" id="contadorProductos"></span>
@@ -599,8 +597,8 @@
         Selecciona el estado de la república
 
         <div class="d-grid gap-2 mt-3 mb-2">
-          <button class="btn btn-warning" type="button" onclick="">Zacatecas, Zac.</button>
-          <button class="btn btn-primary" type="button">León, Guanajuato</button>
+          <button class="btn btn-warning" type="button" onclick="cargarCards(1)">Zacatecas, Zac.</button>
+          <button class="btn btn-primary" type="button" onclick="cargarCards(2)">León, Guanajuato</button>
         </div>
 
       </div>
