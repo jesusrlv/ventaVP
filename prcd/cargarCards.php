@@ -12,7 +12,7 @@ $categoria = $row['categoria'];
     echo '
 <div class="col-md-3 col-sm-12">
     <div class="card cardDos">
-        <img src="productos/'.$row['img'].'" class="card-img-top p-2" alt="..." id="imagenCatalogo">
+        <img src="productos/'.$row['img'].'" class="card-img-top w-100 h-100 bg-dark p-2" alt="..." id="imagenCatalogo">
         <div class="card-body">
             <h5 class="card-title">
                 <span class="badge text-bg-primary">'.$row['categoria'].'</span>
