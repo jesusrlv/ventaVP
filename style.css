@@ -62,7 +62,7 @@ body{
   }
 
   .cardDos{
-    /* width: 18rem;  */
+   width: 100%;
     /* height: 37vh;  */
     border-color: #f79e00; 
     background-color:#333333;
@@ -169,12 +169,12 @@ body{
   }
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 575px) {
   .cardDos {
     width: 100%;
-    height: 45vh; 
-    border-color: #f79e00; 
-    background-color:#333333;
+    max-height: 1000px;
+    /* border-color: #f79e00;  */
+    /* background-color:#333333; */
   }
   #imagenCatalogo{
     width: 50%;
