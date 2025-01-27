@@ -251,7 +251,7 @@
       </div>
       <!-- Slide 3 -->
       <div class="carousel-item h-100">
-        <img src="img/superissste_tienda.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Slide 3">
+        <img src="img/vapes_tienda.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Slide 3">
         <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
           <h1>
             <img src="img/logo_vape.png" alt="" width="350" style="background-color: rgba(37, 37, 37, 0.7); padding: 30px; border-radius: 50%;">
@@ -276,7 +276,32 @@
     </button>
   </div>
   
+<!-- inicia catálogo -->
+<hr class="featurette-divider mt-3">
+<span id="catalogo"></span>
+<div class="row featurette container-card3">
+  <div class="col-md-12 d-flex flex-column justify-content-center" style="height: 25vh;">
+    <h2 class="featurette-heading fw-normal lh-1 text-center colorText">Catálogo <span class="colorText2">VAPE FACTORY</span></h2>
+    <p class="lead text-center colorText">Encuentra lo que necesites de nuestro catálogo online.</p>
+    <h2 class="pb-2 border-bottom mb-5"></h2>
+  </div>
+  <div class="container container-card4">
+    <p>
+      <div class="input-group mb-3" hidden>
+        <span class="input-group-text" id="basic-addon1"><i class="bi bi-cart"></i></span>
+        <select class="form-select" aria-label="Default select example" id="categoria" onchange="cargaProductos(this.value,0)">
+        </select>
+      </div>
+    </p>
+    <hr>
+    <!-- <span class="" id="contadorProductos"></span> -->
+    <div class="row g-3 mb-2" id="categoria2">
 
+    </div>
+    <span class="" id="contadorProductos"></span>
+  </div>
+</div>
+<!-- fin catálogo -->
 
   <!-- Marketing messaging and featurettes
   ================================================== -->
@@ -451,31 +476,7 @@
       </div>
     </div>
 
-
-    <hr class="featurette-divider mt-3">
-    <span id="catalogo"></span>
-    <div class="row featurette container-card3">
-      <div class="col-md-12 d-flex flex-column justify-content-center" style="height: 25vh;">
-        <h2 class="featurette-heading fw-normal lh-1 text-center colorText">Catálogo <span class="colorText2">VAPE FACTORY</span></h2>
-        <p class="lead text-center colorText">Encuentra lo que necesites de nuestro catálogo online.</p>
-        <h2 class="pb-2 border-bottom mb-5"></h2>
-      </div>
-      <div class="container container-card4">
-        <p>
-          <div class="input-group mb-3" hidden>
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-cart"></i></span>
-            <select class="form-select" aria-label="Default select example" id="categoria" onchange="cargaProductos(this.value,0)">
-            </select>
-          </div>
-        </p>
-        <hr>
-        <!-- <span class="" id="contadorProductos"></span> -->
-        <div class="row g-3 mb-2" id="categoria2">
-
-        </div>
-        <span class="" id="contadorProductos"></span>
-      </div>
-    </div>
+    
 
     <hr class="featurette-divider mt-3">
 
