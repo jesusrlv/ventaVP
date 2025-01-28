@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-01-2025 a las 23:10:56
+-- Tiempo de generación: 28-01-2025 a las 08:12:04
 -- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.28
+-- Versión de PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -443,10 +443,17 @@ INSERT INTO `inventario` (`id`, `codigo`, `descripcion`, `zac`, `leon`, `precio`
 
 CREATE TABLE `usr` (
   `id` int(11) NOT NULL,
-  `usr` int(11) NOT NULL,
-  `pwd` int(11) NOT NULL,
+  `usr` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `pwd` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `perfil` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `usr`
+--
+
+INSERT INTO `usr` (`id`, `usr`, `pwd`, `perfil`) VALUES
+(1, 'admin', '123456789', 1);
 
 -- --------------------------------------------------------
 
@@ -461,28 +468,29 @@ CREATE TABLE `venta_completa` (
   `telefono` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `card_last` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `identificador` varchar(25) COLLATE utf8_unicode_ci NOT NULL
+  `identificador` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `entregado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `venta_completa`
 --
 
-INSERT INTO `venta_completa` (`id`, `nombre_completo`, `direccion`, `telefono`, `email`, `card_last`, `identificador`) VALUES
-(2, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '202412180618148C85CAD2'),
-(3, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '20241218062236DEB677EF'),
-(4, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '202412180625366F46B839'),
-(5, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '2024121806264925B24C71'),
-(6, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '202412180631493C8B0E92'),
-(7, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '2024121806364087885759'),
-(8, 'xxs', 'ssss', '223333', '2233ddsd@vdfd.com', '827839', '20241218064127685F1374'),
-(9, 'xxs', 'ssss', '223333', '2233ddsd@vdfd.com', '827839', '20241218064248C858A85B'),
-(10, 'xxs', 'ssss', '223333', '2233ddsd@vdfd.com', '827839', '20241218064353FD457428'),
-(11, 'xxs', 'ssss', '223333', '2233ddsd@vdfd.com', '827839', '2024121806441559522A44'),
-(12, 'Jesús Rodolfo Leaños Villegas', 'Calle camino del pinar 111', '4915000', 'jesusrlv@gmail.com', '98762343', '2024121806464963BE510D'),
-(13, 'hh', 'hh', '888', 'hukk', '54387548', '2025012507500734C5DA6D'),
-(14, 'ds', 'ds', '8667', 'sds', '6465464564', '202501250757183880D4CF'),
-(15, 'dsds', 'sdsd', '23232323', 'sdsdsd@sdsds', '22222', '20250127224034142750C7');
+INSERT INTO `venta_completa` (`id`, `nombre_completo`, `direccion`, `telefono`, `email`, `card_last`, `identificador`, `entregado`) VALUES
+(2, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '202412180618148C85CAD2', 0),
+(3, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '20241218062236DEB677EF', 0),
+(4, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '202412180625366F46B839', 0),
+(5, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '2024121806264925B24C71', 0),
+(6, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '202412180631493C8B0E92', 0),
+(7, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '2024121806364087885759', 0),
+(8, 'xxs', 'ssss', '223333', '2233ddsd@vdfd.com', '827839', '20241218064127685F1374', 0),
+(9, 'xxs', 'ssss', '223333', '2233ddsd@vdfd.com', '827839', '20241218064248C858A85B', 0),
+(10, 'xxs', 'ssss', '223333', '2233ddsd@vdfd.com', '827839', '20241218064353FD457428', 0),
+(11, 'xxs', 'ssss', '223333', '2233ddsd@vdfd.com', '827839', '2024121806441559522A44', 0),
+(12, 'Jesús Rodolfo Leaños Villegas', 'Calle camino del pinar 111', '4915000', 'jesusrlv@gmail.com', '98762343', '2024121806464963BE510D', 0),
+(13, 'hh', 'hh', '888', 'hukk', '54387548', '2025012507500734C5DA6D', 0),
+(14, 'ds', 'ds', '8667', 'sds', '6465464564', '202501250757183880D4CF', 0),
+(15, 'dsds', 'sdsd', '23232323', 'sdsdsd@sdsds', '22222', '20250127224034142750C7', 0);
 
 --
 -- Índices para tablas volcadas
@@ -544,7 +552,7 @@ ALTER TABLE `inventario`
 -- AUTO_INCREMENT de la tabla `usr`
 --
 ALTER TABLE `usr`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `venta_completa`
