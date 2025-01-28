@@ -25,9 +25,25 @@ $categoria = $row['categoria'];
 $sql2 = "SELECT * FROM inventario WHERE categoria = '$categoria'";
 $resultado2 = $conn->query($sql2);
 while($row2 = $resultado2->fetch_assoc()){
-    echo'
-                <option value="'.$row2['descripcion'].'">'.$row2['descripcion'].'</option>
-    ';
+    if($estado == 1){
+        $variable = $row2['zac'];
+    }
+    else{
+        $variable = $row2['leon'];
+    }
+
+    if($variable > 0){
+        echo'
+                    <option value="'.$row2['descripcion'].'">'.$row2['descripcion'].'</option>
+        ';
+    }
+    else{
+        echo'
+                    <option value="'.$row2['descripcion'].'" disabled>'.$row2['descripcion'].' - Agotado</option>
+        ';
+    }
+        
+
 }
                     
     echo'
