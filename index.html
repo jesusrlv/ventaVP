@@ -24,8 +24,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="js/script.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="js/stripe.js" defer></script>
+    <script src="js/carrito.js"></script>
     
-
+    
     <style>
       body {
         font-family: "Lexend", serif;
@@ -109,6 +112,48 @@
       .bd-mode-toggle .dropdown-menu .active .bi {
         display: block !important;
       }
+      /* pagos */
+      #payment-form {
+          width: 300px;
+          margin: 20px auto;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+          background: #fff;
+      }
+
+      #payment-form input {
+          width: 100%;
+          padding: 10px;
+          margin: 5px 0;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 16px;
+      }
+
+      #payment-form button {
+          width: 100%;
+          padding: 10px;
+          background-color: #007bff;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          font-size: 16px;
+          cursor: pointer;
+      }
+
+      #payment-form button:hover {
+          background-color: #0056b3;
+      }
+
+      #payment-result {
+          text-align: center;
+          margin-top: 10px;
+          font-weight: bold;
+      }
+
+      /* pagos */
     </style>
 
     
@@ -509,6 +554,34 @@
       <span class="input-group-text" id="basic-addon1"><i class="bi bi-credit-card"></i></span>
       <input type="text" class="form-control" placeholder="Tarjeta" aria-label="Tarjeta" aria-describedby="basic-addon1" id="tarjeta">
     </div>
+
+    <!-- datos de pago -->
+    <!-- <form id="payment-form">
+      <input type="text" id="cardholder-name" placeholder="Nombre en la tarjeta" required>
+  
+      <input type="tel" id="card-number" placeholder="Número de tarjeta" required maxlength="16" pattern="\d{16}" inputmode="numeric">
+  
+      <input type="text" id="card-expiry" placeholder="MM/YY" required pattern="^(0[1-9]|1[0-2])\/\d{2}$">
+  
+      <input type="text" id="card-cvc" placeholder="CVC" required minlength="3" maxlength="4" pattern="\d{3,4}">
+  
+      <button type="submit">Pagar</button>
+  </form>
+  
+  <div id="payment-result"></div> -->
+  
+  <form id="payment-form">
+    <!-- Campo seguro de Stripe Elements -->
+    <div id="card-element"></div>
+  
+    <!-- Mensajes de error -->
+    <div id="card-errors" role="alert"></div>
+  
+    <button type="submit">Pagar</button>
+  </form>
+
+<div id="payment-result"></div>
+    <!-- datos de pago -->
     
     <!-- <h4><i class="bi bi-list-check"></i> Mercancía por adquitir</h4> -->
     <div class="alert text-center" role="alert" style="background-color: #f79e00;">
@@ -572,7 +645,6 @@
 
 </html>
 
-<script src="js/carrito.js"></script>
 
 <script>
   $("a[href^='#']").click(function(e) {
