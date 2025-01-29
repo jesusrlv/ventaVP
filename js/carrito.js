@@ -172,12 +172,12 @@ document.addEventListener("DOMContentLoaded", () => {
     sendCart.addEventListener("click", () => {
     // const datosGenerales = () => {
         // Obtener los valores de los campos
-        // let datosLenght =  document.getElementById("cartBody").rows.length;
         let nombre = document.getElementById("nombre").value;
         let direccion = document.getElementById("direccion").value;
         let telefono = document.getElementById("telefono").value;
         let correo = document.getElementById("email").value;
         let tarjeta = document.getElementById("tarjeta").value;
+        let estado =  document.getElementById("estado").value;
         
         $('#carrito').offcanvas('hide');
         
@@ -210,7 +210,8 @@ document.addEventListener("DOMContentLoaded", () => {
             direccion: direccion,
             telefono: telefono,
             correo: correo,
-            tarjeta: tarjeta
+            tarjeta: tarjeta,
+            estado: estado
         };
     
         // Realizar el fetch con los datos

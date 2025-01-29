@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 28-01-2025 a las 08:12:04
+-- Tiempo de generación: 29-01-2025 a las 17:57:19
 -- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.29
+-- Versión de PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -51,7 +51,12 @@ INSERT INTO `carrito` (`id`, `producto_id`, `cantidad`, `total`, `fecha`, `id_ve
 (24, 246, 1, '690.00', '2025-01-25 06:57:18', '202501250757183880D4CF'),
 (25, 99, 1, '265.00', '2025-01-27 21:40:34', '20250127224034142750C7'),
 (26, 129, 1, '285.00', '2025-01-27 21:40:34', '20250127224034142750C7'),
-(27, 13, 1, '265.00', '2025-01-27 21:40:34', '20250127224034142750C7');
+(27, 13, 1, '265.00', '2025-01-27 21:40:34', '20250127224034142750C7'),
+(28, 3, 1, '265.00', '2025-01-29 15:45:30', '20250129164530AE58616B'),
+(29, 5, 1, '265.00', '2025-01-29 15:48:45', '202501290948456AAD2DAA'),
+(30, 14, 1, '265.00', '2025-01-29 16:17:39', '2025012910173929326B6A'),
+(31, 3, 1, '265.00', '2025-01-29 16:48:14', '202501291048148568BAE5'),
+(32, 1, 1, '265.00', '2025-01-29 16:52:37', '20250129105236EF3ED9A1');
 
 -- --------------------------------------------------------
 
@@ -111,7 +116,7 @@ CREATE TABLE `inventario` (
 --
 
 INSERT INTO `inventario` (`id`, `codigo`, `descripcion`, `zac`, `leon`, `precio`, `categoria`, `ruta`, `oferta`) VALUES
-(1, '0001', 'Banana ice *', 1, 0, '265', 'IPLAY MAX', 'Iplay Max.JPG', 0),
+(1, '0001', 'Banana ice *', 0, 1, '265', 'IPLAY MAX', 'Iplay Max.JPG', 0),
 (2, '0002', 'Berry Watermelon', 1, 0, '265', 'IPLAY MAX', 'Iplay Max.JPG', 0),
 (3, '0003', 'Coconut ice', 1, 0, '265', 'IPLAY MAX', 'Iplay Max.JPG', 0),
 (4, '0004', 'Banana cherry', 1, 0, '265', 'IPLAY MAX', 'Iplay Max.JPG', 0),
@@ -469,28 +474,44 @@ CREATE TABLE `venta_completa` (
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `card_last` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `identificador` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `entregado` int(11) NOT NULL
+  `estado` int(11) NOT NULL,
+  `entregado` int(11) DEFAULT NULL,
+  `fecha_registro` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `venta_completa`
 --
 
-INSERT INTO `venta_completa` (`id`, `nombre_completo`, `direccion`, `telefono`, `email`, `card_last`, `identificador`, `entregado`) VALUES
-(2, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '202412180618148C85CAD2', 0),
-(3, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '20241218062236DEB677EF', 0),
-(4, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '202412180625366F46B839', 0),
-(5, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '2024121806264925B24C71', 0),
-(6, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '202412180631493C8B0E92', 0),
-(7, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '2024121806364087885759', 0),
-(8, 'xxs', 'ssss', '223333', '2233ddsd@vdfd.com', '827839', '20241218064127685F1374', 0),
-(9, 'xxs', 'ssss', '223333', '2233ddsd@vdfd.com', '827839', '20241218064248C858A85B', 0),
-(10, 'xxs', 'ssss', '223333', '2233ddsd@vdfd.com', '827839', '20241218064353FD457428', 0),
-(11, 'xxs', 'ssss', '223333', '2233ddsd@vdfd.com', '827839', '2024121806441559522A44', 0),
-(12, 'Jesús Rodolfo Leaños Villegas', 'Calle camino del pinar 111', '4915000', 'jesusrlv@gmail.com', '98762343', '2024121806464963BE510D', 0),
-(13, 'hh', 'hh', '888', 'hukk', '54387548', '2025012507500734C5DA6D', 0),
-(14, 'ds', 'ds', '8667', 'sds', '6465464564', '202501250757183880D4CF', 0),
-(15, 'dsds', 'sdsd', '23232323', 'sdsdsd@sdsds', '22222', '20250127224034142750C7', 0);
+INSERT INTO `venta_completa` (`id`, `nombre_completo`, `direccion`, `telefono`, `email`, `card_last`, `identificador`, `estado`, `entregado`, `fecha_registro`) VALUES
+(2, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '202412180618148C85CAD2', 0, 0, '0000-00-00 00:00:00'),
+(3, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '20241218062236DEB677EF', 0, 0, '0000-00-00 00:00:00'),
+(4, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '202412180625366F46B839', 0, 0, '0000-00-00 00:00:00'),
+(5, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '2024121806264925B24C71', 0, 0, '0000-00-00 00:00:00'),
+(6, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '202412180631493C8B0E92', 0, 0, '0000-00-00 00:00:00'),
+(7, 'z', 'x', '11222', 'dasdasd@dadfd.net', '11223456', '2024121806364087885759', 0, 0, '0000-00-00 00:00:00'),
+(8, 'xxs', 'ssss', '223333', '2233ddsd@vdfd.com', '827839', '20241218064127685F1374', 0, 0, '0000-00-00 00:00:00'),
+(9, 'xxs', 'ssss', '223333', '2233ddsd@vdfd.com', '827839', '20241218064248C858A85B', 0, 0, '0000-00-00 00:00:00'),
+(10, 'xxs', 'ssss', '223333', '2233ddsd@vdfd.com', '827839', '20241218064353FD457428', 0, 0, '0000-00-00 00:00:00'),
+(11, 'xxs', 'ssss', '223333', '2233ddsd@vdfd.com', '827839', '2024121806441559522A44', 0, 0, '0000-00-00 00:00:00'),
+(12, 'Jesús Rodolfo Leaños Villegas', 'Calle camino del pinar 111', '4915000', 'jesusrlv@gmail.com', '98762343', '2024121806464963BE510D', 0, 0, '0000-00-00 00:00:00'),
+(13, 'hh', 'hh', '888', 'hukk', '54387548', '2025012507500734C5DA6D', 0, 0, '0000-00-00 00:00:00'),
+(14, 'ds', 'ds', '8667', 'sds', '6465464564', '202501250757183880D4CF', 0, 0, '0000-00-00 00:00:00'),
+(15, 'dsds', 'sdsd', '23232323', 'sdsdsd@sdsds', '22222', '20250127224034142750C7', 0, 0, '0000-00-00 00:00:00'),
+(16, 's', 's', 's', 's', 's', '20250129164530AE58616B', 0, NULL, '0000-00-00 00:00:00'),
+(17, 'dsd', 'sds', 'sdsd', 'sdsd', 'sdsds', '202501290948456AAD2DAA', 0, NULL, '2025-01-29 09:48:45'),
+(18, 'fd', 'df', 'fd', 'df', 'df', '20250129095014F749E6AD', 0, NULL, '2025-01-29 09:50:14'),
+(19, 'ds', 'ds', 'ds', 'ds', 'ds', '20250129095317A5B155DE', 0, NULL, '2025-01-29 09:53:17'),
+(20, 'ds', 'ds', 'ds', 'ds', 'ds', '20250129095521EA830634', 0, NULL, '2025-01-29 09:55:21'),
+(21, 'ds', 'ds', 'ds', 'ds', 'ds', '2025012909572597A6E40A', 0, NULL, '2025-01-29 09:57:25'),
+(22, 'd', 'd', 'd', 'd', 'd', '20250129095739360E724B', 0, NULL, '2025-01-29 09:57:39'),
+(23, 'd', 'd', 'd', 'd', 'd', '20250129100305D7006CE0', 0, NULL, '2025-01-29 10:03:05'),
+(24, 'dsds', 'ds', 'sd', 'sd', 'sd', '20250129100324588DB374', 0, NULL, '2025-01-29 10:03:24'),
+(25, 'dsds', 'ds', 'sd', 'sd', 'sd', '20250129100408635C5895', 0, NULL, '2025-01-29 10:04:08'),
+(26, 'dsds', 'ds', 'sd', 'sd', 'sd', '20250129100420E98ADC2C', 0, NULL, '2025-01-29 10:04:20'),
+(27, 'e', 'e', 'e', 'e', '3', '2025012910173929326B6A', 0, NULL, '2025-01-29 10:17:39'),
+(28, 'Diana Anahi Barrios', 'ee', '333', '333', '333', '202501291048148568BAE5', 1, NULL, '2025-01-29 10:48:14'),
+(29, 'x', 'x', '1', 'x', '1', '20250129105236EF3ED9A1', 2, NULL, '2025-01-29 10:52:36');
 
 --
 -- Índices para tablas volcadas
@@ -534,7 +555,7 @@ ALTER TABLE `venta_completa`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -558,7 +579,7 @@ ALTER TABLE `usr`
 -- AUTO_INCREMENT de la tabla `venta_completa`
 --
 ALTER TABLE `venta_completa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

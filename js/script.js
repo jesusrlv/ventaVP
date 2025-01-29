@@ -65,7 +65,8 @@ function cargarCards(estadoMx){
         },
         dataType: "html",
         success: function(data){
-            $('#categoria2').fadeIn(1000).html(data);    
+            $('#categoria2').fadeIn(1000).html(data);
+            document.getElementById('estado').value = estadoMx;    
         }
     });
 }

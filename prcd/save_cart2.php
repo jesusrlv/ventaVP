@@ -27,6 +27,8 @@ $telefono = $data['telefono'] ?? null;
 $correo = $data['correo'] ?? null;
 $tarjeta = $data['tarjeta'] ?? null;
 
+$estado = $data['estado'] ?? null;
+
 // Validar campos obligatorios
 if (empty($nombre) || empty($direccion) || empty($telefono) || empty($correo)) {
     $response = [
@@ -49,6 +51,7 @@ $query = "INSERT INTO venta_completa (
     email,
     card_last,
     identificador,
+    estado,
     fecha_registro
 ) VALUES (
     '$nombre',
@@ -57,6 +60,7 @@ $query = "INSERT INTO venta_completa (
     '$correo',
     '$tarjeta',
     '$identificadorUnico',
+    '$estado',
     '$fecha_sistema'
 )";
 $resultado = $conn->query($query);
