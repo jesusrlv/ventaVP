@@ -66,7 +66,14 @@ function cargarCards(estadoMx){
         dataType: "html",
         success: function(data){
             $('#categoria2').fadeIn(1000).html(data);
-            document.getElementById('estado').value = estadoMx;    
+            document.getElementById('estado').value = estadoMx;
+            
+            if(estadoMx == 1){
+                document.getElementById('edoEnvio').innerHTML = "Zacatecas";
+            }
+            else if(estadoMx == 2){
+                document.getElementById('edoEnvio').innerHTML = "León, Guanajuato";
+            }
         }
     });
 }

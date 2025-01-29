@@ -168,7 +168,6 @@
       </ul>
     </div>
 
-    
 <header data-bs-theme="dark">
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
@@ -182,13 +181,10 @@
             <a class="nav-link active" aria-current="page" href="#inicio"><i class="bi bi-house"></i> Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#servicios"><i class="bi bi-info-circle-fill"></i> Servicios</a>
+            <a class="nav-link" href="#catalogo" aria-disabled=""><i class="bi bi-cart3"></i> Catálogo</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#ofertas" aria-disabled=""><i class="bi bi-bag-check-fill"></i> Ofertas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#catalogo" aria-disabled=""><i class="bi bi-cart3"></i> Catálogo</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="" aria-disabled=""><i class="bi bi-globe-americas"></i> Cambiar estado</a>
@@ -229,7 +225,7 @@
           
           <p>
             <div class="d-grid gap-2">
-              <a class="btn btn-lg btn-outline-warning" href="#servicios"><i class="bi bi-info-circle-fill"></i> CATALOGO</a>
+              <a class="btn btn-lg btn-outline-warning" href="#catalogo"><i class="bi bi-info-circle-fill"></i> CATÁLOGO</a>
             </div>
           </p>
         </div>
@@ -244,7 +240,7 @@
          
           <p>
             <div class="d-grid gap-2">
-              <a class="btn btn-lg btn-outline-warning" href="#servicios"><i class="bi bi-geo-alt"></i> UBICACIÓN</a>
+              <a class="btn btn-lg btn-outline-warning" href="#catalogo"><i class="bi bi-geo-alt"></i> CATÁLOGO</a>
             </div>
           </p>
           
@@ -260,7 +256,7 @@
          
           <p>
             <div class="d-grid gap-2">
-              <a class="btn btn-lg btn-outline-warning" href="#servicios"><i class="bi bi-cart3"></i> CATÁLOGO</a>
+              <a class="btn btn-lg btn-outline-warning" href="#catalogo"><i class="bi bi-cart3"></i> CATÁLOGO</a>
             </div>
           </p>
           
@@ -406,50 +402,6 @@
     </div>
     <!-- custom -->
     
-  <!-- Inicia catálogo -->
-    <p class="text-center">
-      <h2 class="featurette-heading fw-normal lh-1 text-center mb-5 colorText">Nuestros servicios <span class="colorText2">VAPE FACTORY</span></h2>
-      <h2 class="pb-2 border-bottom mb-5"></h2>
-    </p>
-    <div class="container container-card2">
-    <!-- Three columns of text below the carousel -->
-    <div class="cards-container">
-      <div class="card2">
-        <h3><i class="bi bi-map"></i> Ubicación</h3>
-        <p>Dónde puedes recoger VAPE FACTORY</p>
-        <span class="add-text"><i class="bi bi-arrow-bar-down"></i> Ir a sección...</span>
-        <img src="img/logo_vape.png" class="bg-dark edit-button" style="border-radius: 50%;" alt="">
-        <div class="menu-button">⋮</div>
-      </div>
-  
-      <div class="card2">
-        <h3><i class="bi bi-people-fill"></i> Atención a clientes</h3>
-        <p>Conoce nuestra sección de atención a clientes</p>
-        <span class="add-text"><i class="bi bi-arrow-bar-down"></i> Ir a sección...</span>
-        <!-- <button class="edit-button">✏️</button> -->
-         <img src="img/logo_vape.png" class="bg-dark edit-button" style="border-radius: 50%;" alt="">
-        <div class="menu-button">⋮</div>
-      </div>
-  
-      <div class="card2">
-        <h3><i class="bi bi-journals"></i> Catálogo</h3>
-        <p>Conoce nuestro catálogo de productos</p>
-        <span class="add-text"><i class="bi bi-arrow-bar-down"></i> Ir a sección...</span>
-        <img src="img/logo_vape.png" class="bg-dark edit-button" style="border-radius: 50%;" alt="">
-        <div class="menu-button">⋮</div>
-      </div>
-
-      <div class="card2">
-        <h3><i class="bi bi-tags-fill"></i> Ofertas</h3>
-        <p>Revisa nuestras ofertas</p>
-        <span class="add-text"><i class="bi bi-arrow-bar-down"></i> Ir a sección...</span>
-        <img src="img/logo_vape.png" class="bg-dark edit-button" style="border-radius: 50%;" alt="">
-        <div class="menu-button">⋮</div>
-      </div>
-      
-    </div>
-  </div>
-
     <!-- START THE FEATURETTES -->
     <span id="ubicacion"></span>
     <hr class="featurette-divider mt-5">
@@ -525,14 +477,14 @@
     </body>
 
 <!-- offcanvas -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="carrito" aria-labelledby="offcanvasRightLabel">
+<div class="offcanvas offcanvas-end" tabindex="-1" id="carrito" aria-labelledby="offcanvasRightLabel" style="background-color: #333333;">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasRightLabel"><i class="bi bi-cart-plus"></i> Carrito de compras</h5>
+    <h5 class="offcanvas-title" id="offcanvasRightLabel" style="color:#f79e00"><i class="bi bi-cart-plus"></i> Carrito de compras</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     <!-- <h4><i class="bi bi-list-check"></i> Datos generales</h4> -->
-    <div class="alert alert-primary text-center" role="alert">
+    <div class="alert text-center" role="alert" style="background-color: #f79e00;">
       <i class="bi bi-list-check"></i> Datos generales
     </div>
     
@@ -559,7 +511,7 @@
     </div>
     
     <!-- <h4><i class="bi bi-list-check"></i> Mercancía por adquitir</h4> -->
-    <div class="alert alert-primary text-center" role="alert">
+    <div class="alert text-center" role="alert" style="background-color: #f79e00;">
       <i class="bi bi-list-check"></i> Mercancía por adquitir
     </div>
     <hr>
@@ -582,7 +534,8 @@
     </p>
     <hr>
     <div class="alert alert-info text-center" role="alert">
-      <strong class="me-2">Total a pagar:</strong>$ <span id="total"></span>
+      <strong class="me-2">Total a pagar:</strong>$ <span id="total"></span><br>
+      <small>El envío es gratis a <span id="edoEnvio" class="fw-bold"></span></small>
     </div>    
     <div class="d-grid gap-2">
       <button class="btn btn-primary" id="sendCart" type="button"><i class="bi bi-bag-check-fill"></i> Realizar compra</button>

@@ -16,7 +16,8 @@ $categoria = $row['categoria'];
         <img src="productos/'.$row['img'].'" class="card-img-top w-100 h-100 bg-dark p-2" alt="..." id="imagenCatalogo">
         <div class="card-body">
             <h5 class="card-title">
-                <span class="badge text-bg-primary">'.$row['categoria'].'</span>
+                <span class="badge text-bg-primary"><small>'.$row['categoria'].'</small></span>
+                <span class="badge text-bg-warning"><small>$'.$row['precio'].'.00 MXN</small></span>
             </h5>
             <p>
                 <select class="form-select" aria-label="Default select example" id="sabor'.$row['id'].'">
