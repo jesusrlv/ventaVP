@@ -1,7 +1,7 @@
 
 // nueva forma
 document.addEventListener("DOMContentLoaded", function () {
-    var stripe = Stripe("pk_test_51NUJBsLW97G0onMCGEvK3Sd1BIADMp0jn7EWD3NE4olfQCkrxVxAwW2LKAa7MrKIOIwL3ftR86h5nAyhlx2lhTOp00Z6DruQr5"); // 🔹 Cambia esto por tu clave pública
+    var stripe = Stripe("PUBLIC_KEY"); // 🔹 Cambia esto por tu clave pública
     var elements = stripe.elements();
 
     var card = elements.create("card");
