@@ -124,6 +124,18 @@ document.addEventListener("DOMContentLoaded", () => {
             identificador: id
         }));
 
+        if(cartData.length == 0){
+            Swal.fire({
+                title: "El carrito está vacío",
+                text: "Por favor, agregue productos al carrito",
+                icon: "warning",
+                showCancelButton: false,
+                confirmButtonText: "Aceptar",
+                confirmButtonColor: "#3085d6" // Azul
+            });
+            return;
+        }
+        
         fetch("prcd/save_cart.php", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -160,13 +172,38 @@ document.addEventListener("DOMContentLoaded", () => {
     sendCart.addEventListener("click", () => {
     // const datosGenerales = () => {
         // Obtener los valores de los campos
+        // let datosLenght =  document.getElementById("cartBody").rows.length;
         let nombre = document.getElementById("nombre").value;
         let direccion = document.getElementById("direccion").value;
         let telefono = document.getElementById("telefono").value;
         let correo = document.getElementById("email").value;
         let tarjeta = document.getElementById("tarjeta").value;
+        
         $('#carrito').offcanvas('hide');
         
+        // Validar que los campos no estén vacíos
+        if(nombre == "" || direccion == "" || telefono == "" || correo == "" || tarjeta == ""){
+            Swal.fire({
+                title: "¡Error!",
+                text: "Todos los campos son obligatorios",
+                icon: "error",
+                confirmButtonColor: "#3085d6" 
+            });
+            return;
+        }
+        console.log("Datos:" + cartBody.rows.length);
+         if(cartBody.rows.length == "" || cartBody.rows.length == null || cartBody.rows.length == 0){
+            Swal.fire({
+                title: "El carrito está vacío",
+                text: "Por favor, agregue productos al carrito",
+                icon: "warning",
+                showCancelButton: false,
+                confirmButtonText: "Aceptar",
+                confirmButtonColor: "#3085d6" // Azul
+            });
+            return;
+        }
+
         // Crear un objeto con los datos
         const datos = {
             nombre: nombre,
@@ -196,6 +233,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 console.log("Datos registrados");
             } else {
+                 // revisar si el carrito esta vacio
+                
                
                 console.log("Error al procesar solicitud");
             }

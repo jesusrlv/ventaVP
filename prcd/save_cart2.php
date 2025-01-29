@@ -16,6 +16,10 @@ if ($data === null) {
     exit;
 }
 
+date_default_timezone_set('America/Mexico_City');
+                setlocale(LC_TIME, 'es_MX.UTF-8');
+$fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
+
 // Extraer datos desde el JSON recibido
 $nombre = $data['nombre'] ?? null;
 $direccion = $data['direccion'] ?? null;
@@ -44,14 +48,16 @@ $query = "INSERT INTO venta_completa (
     telefono,
     email,
     card_last,
-    identificador
+    identificador,
+    fecha_registro
 ) VALUES (
     '$nombre',
     '$direccion',
     '$telefono',
     '$correo',
     '$tarjeta',
-    '$identificadorUnico'
+    '$identificadorUnico',
+    '$fecha_sistema'
 )";
 $resultado = $conn->query($query);
 
