@@ -62,12 +62,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         row.innerHTML = `
             <td class="fw-bold small">${detalle}</td>
-            <td><input type="number" value="1" min="1" class="form-control quantity text-center"></td>
+            <td class="text-center" style="width: 80px;">
+                <input type="text" value="1" min="1" class="form-control quantity text-center" style="width: 100%;" disabled>
+            </td>
             <td class="text-center small">${precio}</td>
-            <td class="text-center small total">${precio}</td>
-            <td><button class="btn btn-danger btn-sm remove"><i class="bi bi-trash"></i></button></td>
+            <td class="text-center small total" hidden>${precio}</td>
+            <td class="text-center">
+                <button class="btn btn-danger btn-sm remove">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
         `;
-
+        
         cartBody.appendChild(row);
         calculateTotal();
         filasTotales(sumar);
