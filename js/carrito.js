@@ -1,6 +1,16 @@
 function agregarCarrito(id){
 
     var sabor = document.getElementById("sabor"+id).value;
+
+    if(sabor == ''){
+        Swal.fire({
+            title: "¡Error!",
+            text: "Debe seleccionar un sabor",
+            icon: "error",
+            confirmButtonColor: "#3085d6" 
+        });
+        return;
+    }
     $.ajax({
         url: 'prcd/datosProductos.php',
         type: 'POST',
@@ -33,11 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const offcanvasElement = document.getElementById('carrito');
         const bsOffcanvas = new bootstrap.Offcanvas(offcanvasElement);
         Swal.fire({
-            title: "¿Deseas agregar este producto al carrito?",
-            text: "Confirma tu acción",
-            icon: "question",
-            showCancelButton: true,
-            confirmButtonText: "Sí, agregar",
+            title: "Producto agregado al carrito",
+            text: "Agregado correctamente",
+            icon: "success",
+            showCancelButton: false,
+            confirmButtonText: "Aceptar",
             cancelButtonText: "Cancelar",
             confirmButtonColor: "#3085d6", // Azul
             cancelButtonColor: "#d33" // Rojo

@@ -21,7 +21,7 @@ $categoria = $row['categoria'];
             </h5>
             <p>
                 <select class="form-select" aria-label="Default select example" id="sabor'.$row['id'].'">
-                    <option selected>Selecciona el sabor ...</option>';
+                    <option value="" selected>Selecciona el sabor ...</option>';
                 
 $sql2 = "SELECT * FROM inventario WHERE categoria = '$categoria'";
 $resultado2 = $conn->query($sql2);
