@@ -24,8 +24,6 @@ $fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
 $nombre = $data['nombre'] ?? null;
 $direccion = $data['direccion'] ?? null;
 $telefono = $data['telefono'] ?? null;
-$correo = $data['correo'] ?? null;
-$tarjeta = $data['tarjeta'] ?? null;
 
 $estado = $data['estado'] ?? null;
 
@@ -48,8 +46,6 @@ $query = "INSERT INTO venta_completa (
     nombre_completo,
     direccion,
     telefono,
-    email,
-    card_last,
     identificador,
     estado,
     fecha_registro
@@ -57,8 +53,6 @@ $query = "INSERT INTO venta_completa (
     '$nombre',
     '$direccion',
     '$telefono',
-    '$correo',
-    '$tarjeta',
     '$identificadorUnico',
     '$estado',
     '$fecha_sistema'

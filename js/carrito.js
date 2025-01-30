@@ -168,8 +168,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     document.getElementById("nombre").value = "";
                     document.getElementById("direccion").value = "";
                     document.getElementById("telefono").value = "";
-                    document.getElementById("email").value = "";
-                    document.getElementById("tarjeta").value = "";
                     document.getElementById("cartBody").innerHTML = "";
                     filasTotales(0);
                 }
@@ -187,8 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let nombre = document.getElementById("nombre").value;
         let direccion = document.getElementById("direccion").value;
         let telefono = document.getElementById("telefono").value;
-        let correo = document.getElementById("email").value;
-        let tarjeta = document.getElementById("tarjeta").value;
         let estado =  document.getElementById("estado").value;
         
         $('#carrito').offcanvas('hide');
@@ -221,8 +217,6 @@ document.addEventListener("DOMContentLoaded", () => {
             nombre: nombre,
             direccion: direccion,
             telefono: telefono,
-            correo: correo,
-            tarjeta: tarjeta,
             estado: estado
         };
     
