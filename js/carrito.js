@@ -125,6 +125,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // sendCart.addEventListener("click", () => {
+    
+    // aquí iba el código de guardar datos
     const agregarProductos = (id) => {
         console.log("Identificador recibido:", id); // Verificar si llega correctamente
         const cartData = [...cartBody.querySelectorAll("tr")].map(row => ({
@@ -177,10 +179,10 @@ document.addEventListener("DOMContentLoaded", () => {
             // alert(data.message || "Carrito enviado con éxito")
         )
         .catch(error => console.error("Error:", error));
-    // });
     }
+    // aquí iba el código de guardar datos
+    // aquí iba el código de guardar datos
     sendCart.addEventListener("click", () => {
-    // const datosGenerales = () => {
         // Obtener los valores de los campos
         let nombre = document.getElementById("nombre").value;
         let direccion = document.getElementById("direccion").value;
@@ -257,4 +259,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     // };
     });
+    // aquí iba el código de guardar datos
 });
