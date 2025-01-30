@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $stripeSecretKey = "sk_test_51NUJBsLW97G0onMCuhaetVzs75h33CYJosifzV9G6l2SbzWnCBCAHul8w4XoPo5ASrCDVsl57M1oE2cMokSS8NDy00MDmRiCpS"; // 🔹 Reemplázala con tu clave secreta de Stripe
+    $stripeSecretKey = "SECRET_KEY"; // 🔹 Reemplázala con tu clave secreta de Stripe
     $paymentMethod = $_POST["payment_method"];
     $monto = $_POST['pagoStripe'];
     $ch = curl_init();
