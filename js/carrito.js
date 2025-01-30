@@ -1,4 +1,4 @@
-function agregarCarrito(id){
+function agregarCarrito(id,categoria){
 
     var sabor = document.getElementById("sabor"+id).value;
 
@@ -16,7 +16,8 @@ function agregarCarrito(id){
         type: 'POST',
         dataType: 'json',
         data: { 
-            sabor: sabor
+            sabor: sabor,
+            categoria: categoria
         },
         success: function(data){
             var datos = JSON.parse(JSON.stringify(data));
