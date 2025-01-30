@@ -116,17 +116,27 @@ function carrito(){
     bsOffcanvas.show();
 }
 
+function existencias(id,categoria,sabor){
+    $.ajax({
+        type: "POST",
+        url: "prcd/cargarExistencias.php",
+        dataType: "json",
+        data:{
+            id:id,
+            categoria:categoria,
+            sabor:sabor
+        },
+        success: function(data){
+            var datos = JSON.parse(JSON.stringify(data));
+            var existencias = datos.existencias;
+            var id = datos.id;
+            var sabor = datos.sabor;
 
-// function carritoStore(id,detalle,precio){
-//     // Seleccionar el elemento del offcanvas
-//     const offcanvasElement = document.getElementById('carrito');
-    
-//     // Crear una instancia de Offcanvas de Bootstrap
-//     const bsOffcanvas = new bootstrap.Offcanvas(offcanvasElement);
-  
-//     // Mostrar el offcanvas
-//     bsOffcanvas.show();
-
-//     //función de llenado de grid
-//     tablaGrid(id,detalle,precio);
-// }
+            if(existencias == 0){
+                
+                
+            }
+           
+        }
+    });
+}
