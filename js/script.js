@@ -116,7 +116,7 @@ function carrito(){
     bsOffcanvas.show();
 }
 
-function existencias(id,categoria,sabor){
+function existencias(id,categoria,estado,sabor){
     $.ajax({
         type: "POST",
         url: "prcd/cargarExistencias.php",
@@ -124,18 +124,21 @@ function existencias(id,categoria,sabor){
         data:{
             id:id,
             categoria:categoria,
+            estado:estado,
             sabor:sabor
         },
         success: function(data){
-            var datos = JSON.parse(JSON.stringify(data));
-            var existencias = datos.existencias;
-            var id = datos.id;
-            var sabor = datos.sabor;
+            console.log("aquí llega");
 
-            if(existencias == 0){
+            var datos = JSON.parse(JSON.stringify(data));
+            var success = datos.success;
+            var existencias = datos.existencias;
+            var idProd = datos.id;
+            var sabor = datos.sabor;
+            console.log(existencias)
+                document.getElementById('existencia'+id).innerText = existencias;
                 
-                
-            }
+            
            
         }
     });

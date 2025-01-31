@@ -20,7 +20,7 @@ $categoria = $row['categoria'];
                 <span class="badge text-bg-warning"><small>$'.$row['precio'].'.00 MXN</small></span>
             </h5>
             <p>
-                <select class="form-select" aria-label="Default select example" id="sabor'.$row['id'].'" onchange="existencias('.$row['id'].','.$row['categoria'].',this.value)">
+                <select class="form-select" aria-label="Default select example" id="sabor'.$row['id'].'" onchange="existencias('.$row['id'].',\''.addslashes($categoria).'\','.$estado.',this.value)">
                     <option value="" selected>Selecciona el sabor ...</option>';
                 
 $sql2 = "SELECT * FROM inventario WHERE categoria = '$categoria'";
@@ -44,14 +44,13 @@ while($row2 = $resultado2->fetch_assoc()){
         ';
     }
         
-
 }
                     
     echo'
                 </select>
             </p>
             <p>
-                <span><small>Existencias: </small></span><span id="existencia'.$row['id'].'"></span>
+                <span class="text-light"><small>Existencias: </small></span><span id="existencia'.$row['id'].'" class="text-light"></span>
             </p>
         </div>
         <div class="card-footer">
