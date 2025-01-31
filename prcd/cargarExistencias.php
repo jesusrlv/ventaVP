@@ -25,4 +25,4 @@ echo json_encode(array(
     'id' => $row['id'],
     'sabor' => $row['descripcion']
     
-))
+));

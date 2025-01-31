@@ -118,6 +118,7 @@ function carrito(){
 
 function existencias(id,categoria,estado,sabor){
     $.ajax({
+        async: true,
         type: "POST",
         url: "prcd/cargarExistencias.php",
         dataType: "json",
@@ -135,8 +136,10 @@ function existencias(id,categoria,estado,sabor){
             var existencias = datos.existencias;
             var idProd = datos.id;
             var sabor = datos.sabor;
-            console.log(existencias)
-                document.getElementById('existencia'+id).innerText = existencias;
+            document.getElementById('existencia'+id).innerText = existencias;
+            document.getElementById('agregarCarrito'+id).innerText = 1;
+            document.getElementById('masProd'+id).hidden = false;
+            document.getElementById('menosProd'+id).hidden = false;
                 
             
            

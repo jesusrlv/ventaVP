@@ -49,9 +49,22 @@ while($row2 = $resultado2->fetch_assoc()){
     echo'
                 </select>
             </p>
-            <p>
-                <span class="text-light"><small>Existencias: </small></span><span id="existencia'.$row['id'].'" class="text-light"></span>
+            <p class="d-flex align-items-center gap-2">
+                <span class="badge text-bg-warning">Existencias:</span>
+                <span id="existencia'.$row['id'].'" class="badge rounded-pill text-bg-light text-center"></span>
+                
             </p>
+            <p class="d-flex align-items-center gap-2">
+                <span class="badge text-bg-success">Agregar al carrito:</span>
+                <span id="agregarCarrito'.$row['id'].'" class="badge rounded-pill text-bg-light text-center"></span>
+                <a href="#" id="masProd'.$row['id'].'" hidden>
+                    <i class="bi bi-plus-circle-fill text-warning"></i>
+                </a>
+                <a href="#" id="menosProd'.$row['id'].'" hidden>
+                    <i class="bi bi-dash-circle-fill text-warning"></i>
+                </a>
+            </p>
+
         </div>
         <div class="card-footer">
             <div class="d-grid gap-2">
