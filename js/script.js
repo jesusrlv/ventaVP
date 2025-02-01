@@ -146,3 +146,22 @@ function existencias(id,categoria,estado,sabor){
         }
     });
 }
+
+function aumentarCarrito(val) {
+    event.preventDefault(); // Evita que el enlace te lleve al inicio
+    var elemento = document.getElementById('agregarCarrito' + val);
+    var cantidad = parseInt(elemento.innerText, 10); // Convierte el texto a número
+    cantidad++; // Incrementa la cantidad
+    elemento.innerText = cantidad; // Actualiza el valor en el HTML
+}
+
+function disminuirCarrito(val) {
+    event.preventDefault(); // Evita que el enlace te lleve al inicio
+    var elemento = document.getElementById('agregarCarrito' + val);
+    var cantidad = parseInt(elemento.innerText, 10); // Convierte el texto a número
+    if (cantidad > 0) { // Evita que sea menor a 0
+        cantidad--; // Disminuye la cantidad
+    }
+    elemento.innerText = cantidad; // Actualiza el valor en el HTML
+}
+
