@@ -2,6 +2,20 @@ function agregarCarrito(id,categoria){
 
     var sabor = document.getElementById("sabor"+id).value;
 
+    // para las sumas
+    var existencia = document.getElementById('existencia'+id).innerText;
+    var agregarCarrito = document.getElementById('agregarCarrito'+id).innerText;
+    if(agregarCarrito > existencia){
+        Swal.fire({
+            title: "¡Error!",
+            text: "No hay suficiente producto para agregar al carrito",
+            icon: "error",
+            confirmButtonColor: "#3085d6" 
+        });
+        return;
+    }
+    
+
     if(sabor == ''){
         Swal.fire({
             title: "¡Error!",

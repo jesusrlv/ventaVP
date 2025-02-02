@@ -140,9 +140,7 @@ function existencias(id,categoria,estado,sabor){
             document.getElementById('agregarCarrito'+id).innerText = 1;
             document.getElementById('masProd'+id).hidden = false;
             document.getElementById('menosProd'+id).hidden = false;
-                
-            
-           
+                 
         }
     });
 }
