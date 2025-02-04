@@ -3,8 +3,10 @@ function agregarCarrito(id,categoria){
     var sabor = document.getElementById("sabor"+id).value;
 
     // para las sumas
-    var existencia = document.getElementById('existencia'+id).innerText;
-    var agregarCarrito = document.getElementById('agregarCarrito'+id).innerText;
+    var existencia = parseInt(document.getElementById('existencia' + id).innerText, 10) || 0;
+    var agregarCarrito = parseInt(document.getElementById('agregarCarrito' + id).innerText, 10) || 0;
+
+    console.log("Existencia: "+existencia + " " + agregarCarrito);
     if(agregarCarrito > existencia){
         Swal.fire({
             title: "¡Error!",
