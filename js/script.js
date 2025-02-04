@@ -180,6 +180,8 @@ function bloquearOptions(id){
         document.getElementById('sabor'+id).value = "";
         document.getElementById('existencia' + id).innerText = ""; 
         document.getElementById('agregarCarrito' + id).innerText = ""; 
+        document.getElementById('masProd'+id).hidden = true;
+        document.getElementById('menosProd'+id).hidden = true;
 
     }
 
