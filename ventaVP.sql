@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 29-01-2025 a las 17:57:19
+-- Tiempo de generación: 05-02-2025 a las 00:14:46
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.28
 
@@ -56,7 +56,21 @@ INSERT INTO `carrito` (`id`, `producto_id`, `cantidad`, `total`, `fecha`, `id_ve
 (29, 5, 1, '265.00', '2025-01-29 15:48:45', '202501290948456AAD2DAA'),
 (30, 14, 1, '265.00', '2025-01-29 16:17:39', '2025012910173929326B6A'),
 (31, 3, 1, '265.00', '2025-01-29 16:48:14', '202501291048148568BAE5'),
-(32, 1, 1, '265.00', '2025-01-29 16:52:37', '20250129105236EF3ED9A1');
+(32, 1, 1, '265.00', '2025-01-29 16:52:37', '20250129105236EF3ED9A1'),
+(33, 1, 1, '265.00', '2025-02-04 22:41:27', '20250204164127E8145D79'),
+(34, 1, 1, '265.00', '2025-02-04 22:41:27', '20250204164127E8145D79'),
+(35, 1, 1, '265.00', '2025-02-04 22:42:17', '2025020416421709724AC1'),
+(36, 1, 1, '265.00', '2025-02-04 22:42:17', '2025020416421709724AC1'),
+(37, 1, 1, '265.00', '2025-02-04 22:53:35', '20250204165335B82934D4'),
+(38, 1, 1, '265.00', '2025-02-04 22:53:35', '20250204165335B82934D4'),
+(39, 1, 1, '265.00', '2025-02-04 22:54:25', '20250204165425BB25758E'),
+(40, 1, 1, '265.00', '2025-02-04 22:54:25', '20250204165425BB25758E'),
+(41, 1, 1, '265.00', '2025-02-04 23:02:08', '202502041702080A0FDD3C'),
+(42, 1, 1, '265.00', '2025-02-04 23:02:08', '202502041702080A0FDD3C'),
+(43, 1, 1, '265.00', '2025-02-04 23:02:59', '202502041702593BF1034D'),
+(44, 1, 1, '265.00', '2025-02-04 23:02:59', '202502041702593BF1034D'),
+(45, 1, 3, '265.00', '2025-02-04 23:14:09', '2025020417140982556DAC'),
+(46, 1, 3, '265.00', '2025-02-04 23:14:09', '2025020417140982556DAC');
 
 -- --------------------------------------------------------
 
@@ -116,10 +130,10 @@ CREATE TABLE `inventario` (
 --
 
 INSERT INTO `inventario` (`id`, `codigo`, `descripcion`, `zac`, `leon`, `precio`, `categoria`, `ruta`, `oferta`) VALUES
-(1, '0001', 'Banana ice *', 0, 1, '265', 'IPLAY MAX', 'Iplay Max.JPG', 0),
-(2, '0002', 'Berry Watermelon', 1, 0, '265', 'IPLAY MAX', 'Iplay Max.JPG', 0),
-(3, '0003', 'Coconut ice', 1, 0, '265', 'IPLAY MAX', 'Iplay Max.JPG', 0),
-(4, '0004', 'Banana cherry', 1, 0, '265', 'IPLAY MAX', 'Iplay Max.JPG', 0),
+(1, '0001', 'Banana ice *', 7, -3, '265', 'IPLAY MAX', 'Iplay Max.JPG', 0),
+(2, '0002', 'Berry Watermelon', 11, 0, '265', 'IPLAY MAX', 'Iplay Max.JPG', 0),
+(3, '0003', 'Coconut ice', 12, 0, '265', 'IPLAY MAX', 'Iplay Max.JPG', 0),
+(4, '0004', 'Banana cherry', 13, 0, '265', 'IPLAY MAX', 'Iplay Max.JPG', 0),
 (5, '0001', 'Cranberry Grape *', 1, 0, '265', 'IPLAY MAX', 'Iplay Max.JPG', 0),
 (6, '0002', 'Blue razz lemon *', 1, 0, '265', 'IPLAY MAX', 'Iplay Max.JPG', 1),
 (7, '0003', 'Mango strawberry', 1, 0, '265', 'IPLAY MAX', 'Iplay Max.JPG', 0),
@@ -471,8 +485,8 @@ CREATE TABLE `venta_completa` (
   `nombre_completo` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `direccion` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `telefono` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `card_last` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `card_last` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `identificador` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `estado` int(11) NOT NULL,
   `entregado` int(11) DEFAULT NULL,
@@ -511,7 +525,14 @@ INSERT INTO `venta_completa` (`id`, `nombre_completo`, `direccion`, `telefono`, 
 (26, 'dsds', 'ds', 'sd', 'sd', 'sd', '20250129100420E98ADC2C', 0, NULL, '2025-01-29 10:04:20'),
 (27, 'e', 'e', 'e', 'e', '3', '2025012910173929326B6A', 0, NULL, '2025-01-29 10:17:39'),
 (28, 'Diana Anahi Barrios', 'ee', '333', '333', '333', '202501291048148568BAE5', 1, NULL, '2025-01-29 10:48:14'),
-(29, 'x', 'x', '1', 'x', '1', '20250129105236EF3ED9A1', 2, NULL, '2025-01-29 10:52:36');
+(29, 'x', 'x', '1', 'x', '1', '20250129105236EF3ED9A1', 2, NULL, '2025-01-29 10:52:36'),
+(30, 'jesus', 'rl', '999', NULL, NULL, '20250204164127E8145D79', 1, NULL, '2025-02-04 16:41:27'),
+(31, 'redr', 'reer', '3333', NULL, NULL, '2025020416421709724AC1', 1, NULL, '2025-02-04 16:42:17'),
+(32, 'd', 'd', '2', NULL, NULL, '20250204165335B82934D4', 1, NULL, '2025-02-04 16:53:35'),
+(33, 'jesus', 'd', '9', NULL, NULL, '20250204165425BB25758E', 1, NULL, '2025-02-04 16:54:25'),
+(34, 'jesus', 'd', '9', NULL, NULL, '202502041702080A0FDD3C', 1, NULL, '2025-02-04 17:02:08'),
+(35, 'jesusrlv', 'd', '999999', NULL, NULL, '202502041702593BF1034D', 1, NULL, '2025-02-04 17:02:59'),
+(36, 'reducir', 'd', '9', NULL, NULL, '2025020417140982556DAC', 1, NULL, '2025-02-04 17:14:09');
 
 --
 -- Índices para tablas volcadas
@@ -555,7 +576,7 @@ ALTER TABLE `venta_completa`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -579,7 +600,7 @@ ALTER TABLE `usr`
 -- AUTO_INCREMENT de la tabla `venta_completa`
 --
 ALTER TABLE `venta_completa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
