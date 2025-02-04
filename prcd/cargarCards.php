@@ -68,7 +68,7 @@ while($row2 = $resultado2->fetch_assoc()){
         </div>
         <div class="card-footer">
             <div class="d-grid gap-2">
-                <button class="btn btn-warning" type="button" id="btnAgregar" onclick="agregarCarrito('.$row['id'].', \''.addslashes($categoria).'\')">
+                <button class="btn btn-warning" type="button" id="btnAgregar" onclick="agregarCarrito('.$row['id'].', \''.addslashes($categoria).'\'); bloquearOptions('.$row['id'].')">
                  <i class="bi bi-cart-plus-fill"></i> Carrito
                 </button>
             </div>

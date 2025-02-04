@@ -163,3 +163,23 @@ function disminuirCarrito(val) {
     elemento.innerText = cantidad; // Actualiza el valor en el HTML
 }
 
+function bloquearOptions(id){
+    let select = document.getElementById('sabor' + id);
+    let selectedValue = select.value; // Obtener el valor seleccionado
+
+    if (selectedValue !== "") {
+        let options = select.getElementsByTagName('option');
+
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].value == selectedValue) {
+                options[i].disabled = true; // Deshabilitar la opción seleccionada
+            }
+        }
+        console.log("Seleccionado y deshabilitado:", selectedValue);
+        document.getElementById('sabor'+id).value = "";
+        document.getElementById('existencia' + id).innerText = ""; 
+        document.getElementById('agregarCarrito' + id).innerText = ""; 
+
+    }
+
+}

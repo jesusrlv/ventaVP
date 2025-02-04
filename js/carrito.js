@@ -41,8 +41,6 @@ function agregarCarrito(id,categoria){
             var sabor = datos.sabor;
             var id = datos.id;
 
-            console.log("Precio: "+precio + " " + sabor + " " + id);
-
             carritoStore(id, sabor, precio);
         }
     });
@@ -71,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 
+                // bloquearOptions(id);
                 bsOffcanvas.show();
                 tablaGrid(id, detalle, precio);
                 
