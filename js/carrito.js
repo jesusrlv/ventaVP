@@ -42,7 +42,7 @@ function agregarCarrito(id,categoria){
             var id = datos.id;
             var categoria = datos.categoria;
 
-            carritoStore(id, sabor, precio, categoria);
+            carritoStore(id, sabor, precio, categoria, agregarCarrito);
         }
     });
 }
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let products = [];
     let sumar = 0;
 
-    window.carritoStore = (id, detalle, precio, categoria) => {
+    window.carritoStore = (id, detalle, precio, categoria, agregarCarrito) => {
         const offcanvasElement = document.getElementById('carrito');
         const bsOffcanvas = new bootstrap.Offcanvas(offcanvasElement);
         Swal.fire({
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 // bloquearOptions(id);
                 bsOffcanvas.show();
-                tablaGrid(id, detalle, precio, categoria);
+                tablaGrid(id, detalle, precio, categoria, agregarCarrito);
                 
             } else {
                 console.log("El usuario canceló la acción");
@@ -80,9 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    const tablaGrid = (id1, detalle, precio, categoria1) => {
+    const tablaGrid = (id1, detalle, precio, categoria1, agregarCarrito) => {
         sumar = sumar + 1;
-        products.push({ id: id1, name: detalle, price: precio, categoria: categoria1 });
+        products.push({ id: id1, name: detalle, price: precio, cantidad: agregarCarrito, categoria: categoria1 });
         
         const row = document.createElement("tr");
         row.dataset.productId = id1;
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         row.innerHTML = `
             <td class="fw-bold small">${detalle}</td>
             <td class="text-center" style="width: 80px;">
-                <input type="text" value="1" min="1" class="form-control quantity text-center" style="width: 100%;" disabled>
+                <input type="text" value="${agregarCarrito}" min="1" class="form-control quantity text-center" style="width: 100%;" disabled>
             </td>
             <td class="text-center small">${precio}</td>
             <td class="text-center small total" hidden>${precio}</td>
