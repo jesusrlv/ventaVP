@@ -164,6 +164,7 @@ function disminuirCarrito(val) {
 }
 
 function bloquearOptions(id){
+    console.log("ID:", id);
     let select = document.getElementById('sabor' + id);
     let selectedValue = select.value; // Obtener el valor seleccionado
 
@@ -199,14 +200,15 @@ function regresarOptions(id, sabor) {
 
     // Recorrer las opciones para encontrar la que coincide con 'sabor'
     for (let i = 0; i < options.length; i++) {
+        console.log("Opción:", options[i].value);
         if (options[i].value == sabor) {
             options[i].disabled = false; // Habilitar la opción
             console.log("Se ha habilitado nuevamente:", sabor);
             break; // Terminamos el loop cuando encontramos el valor
         }
-        else {
-            console.log("No Se habilitado:", sabor);
-        }
+        // else {
+        //     console.log("No Se habilitado:", sabor);
+        // }
     }
 }
 

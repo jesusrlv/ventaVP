@@ -40,8 +40,9 @@ function agregarCarrito(id,categoria){
             var precio = datos.precio;
             var sabor = datos.sabor;
             var id = datos.id;
+            var categoria = datos.categoria;
 
-            carritoStore(id, sabor, precio);
+            carritoStore(id, sabor, precio, categoria);
         }
     });
 }
@@ -54,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let products = [];
     let sumar = 0;
 
-    window.carritoStore = (id, detalle, precio) => {
+    window.carritoStore = (id, detalle, precio, categoria) => {
         const offcanvasElement = document.getElementById('carrito');
         const bsOffcanvas = new bootstrap.Offcanvas(offcanvasElement);
         Swal.fire({
@@ -71,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 // bloquearOptions(id);
                 bsOffcanvas.show();
-                tablaGrid(id, detalle, precio);
+                tablaGrid(id, detalle, precio, categoria);
                 
             } else {
                 console.log("El usuario canceló la acción");
@@ -79,9 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    const tablaGrid = (id1, detalle, precio) => {
+    const tablaGrid = (id1, detalle, precio, categoria1) => {
         sumar = sumar + 1;
-        products.push({ id: id1, name: detalle, price: precio });
+        products.push({ id: id1, name: detalle, price: precio, categoria: categoria1 });
         
         const row = document.createElement("tr");
         row.dataset.productId = id1;
@@ -94,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <td class="text-center small">${precio}</td>
             <td class="text-center small total" hidden>${precio}</td>
             <td class="text-center">
-                <button class="btn btn-danger btn-sm remove" onclick="regresarOptions(${id1}, '${detalle.replace(/'/g, "\\'")}')">
+                <button class="btn btn-danger btn-sm remove" onclick="regresarOptions(${categoria1}, '${detalle.replace(/'/g, "\\'")}')">
                         <i class="bi bi-trash"></i>
                     </button>
             </td>
