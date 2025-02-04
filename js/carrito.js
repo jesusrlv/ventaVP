@@ -94,9 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
             <td class="text-center small">${precio}</td>
             <td class="text-center small total" hidden>${precio}</td>
             <td class="text-center">
-                <button class="btn btn-danger btn-sm remove">
-                    <i class="bi bi-trash"></i>
-                </button>
+                <button class="btn btn-danger btn-sm remove" onclick="regresarOptions(${id1}, '${detalle.replace(/'/g, "\\'")}')">
+                        <i class="bi bi-trash"></i>
+                    </button>
             </td>
         `;
         
@@ -135,6 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (removeButton) {
             removeButton.closest("tr").remove();
             sumar = sumar - 1;
+
             calculateTotal();
             filasTotales(sumar);
         }

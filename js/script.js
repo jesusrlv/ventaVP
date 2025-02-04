@@ -183,3 +183,30 @@ function bloquearOptions(id){
     }
 
 }
+function regresarOptions(id, sabor) {
+    console.log("ID:", id, "Sabor:", sabor);
+
+    // Obtener el select correspondiente
+    let select = document.getElementById('sabor' + id);
+
+    if (!select) {
+        console.warn("No se encontró el select con ID:", 'sabor' + id);
+        return;
+    }
+
+    // Obtener todas las opciones del select
+    let options = select.getElementsByTagName('option');
+
+    // Recorrer las opciones para encontrar la que coincide con 'sabor'
+    for (let i = 0; i < options.length; i++) {
+        if (options[i].value == sabor) {
+            options[i].disabled = false; // Habilitar la opción
+            console.log("Se ha habilitado nuevamente:", sabor);
+            break; // Terminamos el loop cuando encontramos el valor
+        }
+        else {
+            console.log("No Se habilitado:", sabor);
+        }
+    }
+}
+
