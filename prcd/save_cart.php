@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $productId = $mysqli->real_escape_string($item['productId']);
         $quantity = $mysqli->real_escape_string($item['quantity']);
         $identificador = $mysqli->real_escape_string($item['identificador']);
+        $estado = $mysqli->real_escape_string($item['estado']);
         $total = $mysqli->real_escape_string($item['total']);
 
         $query = "INSERT INTO carrito (
@@ -36,6 +37,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         '$identificador'
         )";
         $mysqli->query($query);
+        if ($mysqli->query($query) == true){
+            if($estado == 1){
+                $sqlUpdate = "UPDATE inventario SET zac = zac - $quantity WHERE id = $productId";
+            }
+            else{
+                $sqlUpdate = "UPDATE inventario SET leon = leon - $quantity WHERE id = $productId";
+            }
+            $mysqli->query($sqlUpdate); 
+        }
     }
 
     $mysqli->close();

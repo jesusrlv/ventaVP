@@ -6,7 +6,7 @@ let cartBody = document.getElementById('cartBody');
 // nueva forma
 document.addEventListener("DOMContentLoaded", function () {
     
-    var stripe = Stripe("PUBLIC_KEY"); // 🔹 Cambia esto por tu clave pública
+    var stripe = Stripe("pk_test_51NUJBsLW97G0onMCGEvK3Sd1BIADMp0jn7EWD3NE4olfQCkrxVxAwW2LKAa7MrKIOIwL3ftR86h5nAyhlx2lhTOp00Z6DruQr5"); // 🔹 Cambia esto por tu clave pública
     var elements = stripe.elements();
 
     var card = elements.create("card");
@@ -91,14 +91,16 @@ function cerrarTransaccion(){
         let nombre = document.getElementById("nombre").value;
         let direccion = document.getElementById("direccion").value;
         let telefono = document.getElementById("telefono").value;
-        let correo = document.getElementById("email").value;
-        let tarjeta = document.getElementById("tarjeta").value;
-        let estado =  document.getElementById("estado").value;
+        // let correo = document.getElementById("email").value;
+        // let tarjeta = document.getElementById("tarjeta").value;
+        let estado =  document.getElementById("estadoP").value;
+
+        console.log("Estado", estado);
         
         $('#carrito').offcanvas('hide');
         
         // Validar que los campos no estén vacíos
-        if(nombre == "" || direccion == "" || telefono == "" || correo == "" || tarjeta == ""){
+        if(nombre == "" || direccion == "" || telefono == ""){
             Swal.fire({
                 title: "¡Error!",
                 text: "Todos los campos son obligatorios",
@@ -125,9 +127,9 @@ function cerrarTransaccion(){
             nombre: nombre,
             direccion: direccion,
             telefono: telefono,
-            correo: correo,
-            tarjeta: tarjeta,
             estado: estado
+            // correo: correo,
+            // tarjeta: tarjeta,
         };
     
         // Realizar el fetch con los datos
@@ -146,7 +148,7 @@ function cerrarTransaccion(){
             // Manejar el mensaje de éxito
             if (data.success) {
                 let id = data.identificador;
-                agregarProductos(id);
+                agregarProductos(id, estado);
                 
                 console.log("Datos registrados");
             } else {
@@ -164,13 +166,14 @@ function cerrarTransaccion(){
     // });
 }
 
-function agregarProductos(id){
+function agregarProductos(id, estado){
     console.log("Identificador recibido:", id); // Verificar si llega correctamente
         const cartData = [...cartBody.querySelectorAll("tr")].map(row => ({
             productId: row.dataset.productId,
             quantity: row.querySelector(".quantity").value,
             total: row.querySelector(".total").textContent,
-            identificador: id
+            identificador: id,
+            estado: estado
         }));
 
         if(cartData.length == 0){
@@ -205,8 +208,8 @@ function agregarProductos(id){
                     document.getElementById("nombre").value = "";
                     document.getElementById("direccion").value = "";
                     document.getElementById("telefono").value = "";
-                    document.getElementById("email").value = "";
-                    document.getElementById("tarjeta").value = "";
+                    // document.getElementById("email").value = "";
+                    // document.getElementById("tarjeta").value = "";
                     document.getElementById("cartBody").innerHTML = "";
                     // filasTotales(0);
 

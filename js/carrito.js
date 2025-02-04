@@ -145,13 +145,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // sendCart.addEventListener("click", () => {
     
     // aquí iba el código de guardar datos
-    const agregarProductos = (id) => {
+    const agregarProductos = (id, estado) => {
         console.log("Identificador recibido:", id); // Verificar si llega correctamente
         const cartData = [...cartBody.querySelectorAll("tr")].map(row => ({
             productId: row.dataset.productId,
             quantity: row.querySelector(".quantity").value,
             total: row.querySelector(".total").textContent,
-            identificador: id
+            identificador: id,
+            estado: estado
         }));
 
         if(cartData.length == 0){
@@ -254,7 +255,8 @@ document.addEventListener("DOMContentLoaded", () => {
             // Manejar el mensaje de éxito
             if (data.success) {
                 let id = data.identificador;
-                agregarProductos(id);
+                let estado = data.estado;
+                agregarProductos(id, estado);
                 
                 console.log("Datos registrados");
             } else {

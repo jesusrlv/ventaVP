@@ -28,7 +28,7 @@ $telefono = $data['telefono'] ?? null;
 $estado = $data['estado'] ?? null;
 
 // Validar campos obligatorios
-if (empty($nombre) || empty($direccion) || empty($telefono) || empty($correo)) {
+if (empty($nombre) || empty($direccion) || empty($telefono)) {
     $response = [
         "success" => false,
         "message" => "Todos los campos son obligatorios."
@@ -63,6 +63,7 @@ if ($resultado) {
     $response = [
         "success" => true,
         "message" => "Compra registrada con éxito",
+        "estado" => $estado,
         "identificador" => $identificadorUnico // Devolver el identificador generado
     ];
     echo json_encode($response);
