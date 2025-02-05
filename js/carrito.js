@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </button>
             </td>
         `;
-        
+        document.getElementById('sumaCarrito').innerText = sumar;
         cartBody.appendChild(row);
         calculateTotal();
         filasTotales(sumar);
