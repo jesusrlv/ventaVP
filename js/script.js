@@ -191,6 +191,10 @@ function regresarOptions(id, sabor) {
 
     // Obtener el select correspondiente
     let select = document.getElementById('sabor' + id);
+    let numeroCarrito = parseInt(document.getElementById('sumaCarrito').innerText);
+    let resta = numeroCarrito - 1;
+    document.getElementById('sumaCarrito').innerText = resta;
+
 
     if (!select) {
         console.warn("No se encontró el select con ID:", 'sabor' + id);
