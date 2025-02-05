@@ -3,7 +3,7 @@
 require('conn.php');
 $x = 0;
 
-$sql = "SELECT * FROM venta_completa ORDER BY id ASC";
+$sql = "SELECT * FROM venta_completa ORDER BY id DESC";
 $resultado = $conn->query($sql);
 while($row = $resultado->fetch_assoc()){
 
@@ -18,9 +18,30 @@ while($row = $resultado->fetch_assoc()){
         <td>'.$row['identificador'].'</td>
         <td>'.$row['nombre_completo'].'</td>
         <td>'.$row['direccion'].'</td>
-        <td>'.$row['telefono'].'</td>
-        <td>'.$row['email'].'</td>
-        <td>'.$row['email'].'</td>
+        <td>'.$row['telefono'].'</td>';
+    if($row['estado'] == 1){
+        echo '
+        <td>Zacatecas</td>
+        ';
+    }
+    else if($row['estado'] == 2 || $row['estado'] == 0){
+        echo'
+        <td>León, GTO</td>
+        ';
+    }
+
+    if(IS_NULL($row['entregado']) || $row['entregado'] == 0){
+        echo'
+        <td><span class="badge text-bg-danger"><i class="bi bi-x-circle-fill"></i> No entregado</span></td>
+        ';
+    }
+    else{
+        echo'
+        <td><span class="badge text-bg-danger"><i class="bi bi-x-circle-fill"></i> Entregado</span></td>
+        ';
+    }
+        
+        echo'
     </tr>
     <tr>
         <td colspan="9">
