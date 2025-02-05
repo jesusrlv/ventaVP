@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         '$total',
         '$identificador'
         )";
-        $mysqli->query($query);
+        // $mysqli->query($query);
         if ($mysqli->query($query) == true){
             if($estado == 1){
                 $sqlUpdate = "UPDATE inventario SET zac = zac - $quantity WHERE id = $productId";
