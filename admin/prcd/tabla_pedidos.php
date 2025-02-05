@@ -21,23 +21,24 @@ while($row = $resultado->fetch_assoc()){
         <td>'.$row['telefono'].'</td>';
     if($row['estado'] == 1){
         echo '
-        <td>Zacatecas</td>
+        <td><span class="badge text-bg-primary"><i class="bi bi-globe-americas mt-2"></i> Zacatecas</span></td>
         ';
     }
     else if($row['estado'] == 2 || $row['estado'] == 0){
         echo'
-        <td>León, GTO</td>
+        <td><span class="badge text-bg-warning"><i class="bi bi-globe-americas mt-2"></i> León, GTO</span></td>
         ';
     }
 
     if(IS_NULL($row['entregado']) || $row['entregado'] == 0){
         echo'
-        <td><span class="badge text-bg-danger"><i class="bi bi-x-circle-fill"></i> No entregado</span></td>
+        <td><span class="badge text-bg-danger"><i class="bi bi-x-circle-fill mt-2"></i> No entregado</span></td>
+
         ';
     }
     else{
         echo'
-        <td><span class="badge text-bg-danger"><i class="bi bi-x-circle-fill"></i> Entregado</span></td>
+        <td><span class="badge text-bg-success"><i class="bi bi-check-circle-fill mt-2"></i> Entregado</span></td>
         ';
     }
         
