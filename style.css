@@ -105,6 +105,13 @@ body{
 .cardDos .card-footer {
   margin-top: auto; /* Empuja el footer hacia abajo */
 }
+
+.cardDos h5 .badge {
+  font-size: 0.70rem; /* Reduce el tamaño del texto */
+  padding: 0.3rem 0.5rem; /* Ajusta el padding para que no sean tan grandes */
+  line-height: 1; /* Evita que el texto haga que el badge crezca demasiado */
+  white-space: nowrap; /* Evita que se vayan a otra línea */
+}
   .card-footer {
     text-align: center; /* Centra el contenido dentro del footer */
 }
