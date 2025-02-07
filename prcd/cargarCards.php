@@ -11,8 +11,9 @@ echo'
 while($row = $resultado->fetch_assoc()){
 $categoria = $row['categoria'];
     echo '
-<div class="col-md-3 col-sm-12">
-    <div class="card cardDos">
+<div class="col-lg-3 col-md-4 col-sm-6 col-12 d-flex">
+    <div class="card cardDos w-100">
+
         <img src="productos/'.$row['img'].'" class="card-img-top w-100 h-100 bg-dark p-2" alt="..." id="imagenCatalogo">
         <div class="card-body">
             <h5 class="card-title">
@@ -55,7 +56,7 @@ while($row2 = $resultado2->fetch_assoc()){
                 
             </p>
             <p class="d-flex align-items-center gap-2">
-                <span class="badge text-bg-success">Agregar al carrito:</span>
+                <span class="badge text-bg-success">Cantidad:</span>
                 <span id="agregarCarrito'.$row['id'].'" class="badge rounded-pill text-bg-light text-center"></span>
                 <a href="#" id="masProd'.$row['id'].'" onclick="aumentarCarrito('.$row['id'].')" hidden>
                     <i class="bi bi-plus-circle-fill text-warning"></i>
@@ -69,7 +70,7 @@ while($row2 = $resultado2->fetch_assoc()){
         <div class="card-footer">
             <div class="d-grid gap-2">
                 <button class="btn btn-warning" type="button" id="btnAgregar" onclick="agregarCarrito('.$row['id'].', \''.addslashes($categoria).'\'); bloquearOptions('.$row['id'].')">
-                 <i class="bi bi-cart-plus-fill"></i> Carrito
+                 <i class="bi bi-cart-plus-fill"></i> Agregar al carrito
                 </button>
             </div>
         </div>
@@ -79,23 +80,3 @@ while($row2 = $resultado2->fetch_assoc()){
 }
 echo'
  </div>';
-
-// <button class="btn btn-warning" type="button" onclick="carritoStore('.$row['id'].','.$row['precio'].')"><i class="bi bi-cart-plus-fill"></i> Carrito</button>
-
-// <button class="btn btn-warning" type="button" onclick="carritoStore('.$row['id'].',\''.$row['descripcion'].'\','.$row['precio'].')"><i class="bi bi-cart-plus-fill"></i> Carrito</button>
-
-// Iplay Max 	265
-// Iplay big Max 	375
-// Iplay Xbox 	355
-// Iplay Xbox pro	410
-// Masking ultra 	265
-// Nasty 8.5	410
-// Vhill 3000	285
-// Vhill 6000	385
-// Vhil 12000	585
-// Wonder g4	365
-// Wonder g20	690
-// Wonder race 	590
-// Waka 16	690
-// Waka 18	725
-// Waka 36	790
