@@ -112,6 +112,7 @@ body{
   line-height: 1; /* Evita que el texto haga que el badge crezca demasiado */
   white-space: nowrap; /* Evita que se vayan a otra línea */
 }
+
   .card-footer {
     text-align: center; /* Centra el contenido dentro del footer */
 }
