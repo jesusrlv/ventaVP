@@ -86,13 +86,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function cerrarTransaccion(){
-    // sendCart.addEventListener("click", () => {
         // Obtener los valores de los campos
         let nombre = document.getElementById("nombre").value;
         let direccion = document.getElementById("direccion").value;
         let telefono = document.getElementById("telefono").value;
-        // let correo = document.getElementById("email").value;
-        // let tarjeta = document.getElementById("tarjeta").value;
         let estado =  document.getElementById("estadoP").value;
 
         console.log("Estado", estado);
@@ -196,7 +193,7 @@ function agregarProductos(id, estado){
         .then(response => response.json())
         .then(data => {
             Swal.fire({
-                title: "Carrito agregado, se confirma la compra",
+                title: "Gracias por tu compra",
                 text: "VAPE FACTORY",
                 icon: "success",
                 showCancelButton: false,
@@ -208,10 +205,7 @@ function agregarProductos(id, estado){
                     document.getElementById("nombre").value = "";
                     document.getElementById("direccion").value = "";
                     document.getElementById("telefono").value = "";
-                    // document.getElementById("email").value = "";
-                    // document.getElementById("tarjeta").value = "";
                     document.getElementById("cartBody").innerHTML = "";
-                    // filasTotales(0);
 
                     location.reload();
                 }
