@@ -230,9 +230,10 @@
 <div class="container-fluid">
   <div class="row">
     <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+
       <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="sidebarMenuLabel">Company name</h5>
+          <h5 class="offcanvas-title" id="sidebarMenuLabel">Vape Factory</h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
@@ -248,7 +249,7 @@
               <div class="d-flex justify-content-center align-items-center gap-2">
                 <div class="input-group mb-3 mt-3 w-75">
                   <span class="input-group-text" id="basic-addon1"><i class="bi bi-globe-americas"></i></span>
-                  <select class="form-select" aria-label="Default select example" onchange="">
+                  <select class="form-select" aria-label="Default select example" id="selectEstado" onchange="">
                     <option value="" selected>Estado ...</option>
                     <option value="1">Zacatecas</option>
                     <option value="2">León, GTO</option>
@@ -260,15 +261,21 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 text-warning" href="#">
+              <a class="nav-link d-flex align-items-center gap-2 text-warning" href="#" onclick="tablaDatos()">
                 <svg class="bi"><use xlink:href="#file-earmark"/></svg>
                 Pedidos
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 text-success" href="#">
-                <svg class="bi"><use xlink:href="#file-earmark"/></svg>
+              <a class="nav-link d-flex align-items-center gap-2 text-success" href="#" onclick="tablaEntregados()">
+                <i class="bi bi-cart-check-fill"></i>
                 Entregados
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2 text-danger" href="#" onclick="tablaNoEntregados()">
+                <i class="bi bi-cart-x-fill"></i>
+                No Entregados
               </a>
             </li>
             <li class="nav-item">
@@ -277,13 +284,7 @@
                 Productos
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 text-dark" href="#">
-                <svg class="bi"><use xlink:href="#people"/></svg>
-                Usuarios
-              </a>
-            </li>
-            <li class="nav-item">
+            
               <a class="nav-link d-flex align-items-center gap-2" href="#">
                 <svg class="bi"><use xlink:href="#graph-up"/></svg>
                 Inventario
@@ -295,6 +296,13 @@
 
           <ul class="nav flex-column mb-auto">
             <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2 text-dark" href="#">
+                <svg class="bi"><use xlink:href="#people"/></svg>
+                Usuarios
+              </a>
+            </li>
+            <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="#">
                 <svg class="bi"><use xlink:href="#door-closed"/></svg>
                 Salir
@@ -302,6 +310,7 @@
             </li>
           </ul>
         </div>
+
       </div>
     </div>
 

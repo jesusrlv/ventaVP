@@ -1,11 +1,11 @@
 <?php
 
 require('conn.php');
-
-$estado = $_POST['estado'];
 $x = 0;
 
-$sql = "SELECT * FROM venta_completa WHERE estado = '$estado' ORDER BY id DESC";
+$estado = $_POST['estado'];
+
+$sql = "SELECT * FROM venta_completa WHERE entregado != 1 AND estado = '$estado' ORDER BY id DESC";
 $resultado = $conn->query($sql);
 while($row = $resultado->fetch_assoc()){
 

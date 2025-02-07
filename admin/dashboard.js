@@ -1,7 +1,51 @@
 function tablaDatos(){
+  let estado = document.getElementById('selectEstado').value;
+  if(estado == ""){
+    alert("Debes seleccionar un estado");
+    return;
+  }
   $.ajax({
     type: "POST",
     url: "prcd/tabla_pedidos.php",
+    data:{
+      estado:estado
+    },
+    dataType: "html",
+    success: function(data){
+        $('#tablaDatos').fadeIn(1000).html(data);    
+    }
+  });
+}
+function tablaEntregados(){
+  let estado = document.getElementById('selectEstado').value;
+  if(estado == ""){
+    alert("Debes seleccionar un estado");
+    return;
+  }
+  $.ajax({
+    type: "POST",
+    url: "prcd/tabla_entregados.php",
+    data:{
+      estado:estado
+    },
+    dataType: "html",
+    success: function(data){
+        $('#tablaDatos').fadeIn(1000).html(data);    
+    }
+  });
+}
+function tablaNoEntregados(){
+  let estado = document.getElementById('selectEstado').value;
+  if(estado == ""){
+    alert("Debes seleccionar un estado");
+    return;
+  }
+  $.ajax({
+    type: "POST",
+    url: "prcd/tabla_no_entregados.php",
+    data:{
+      estado:estado
+    },
     dataType: "html",
     success: function(data){
         $('#tablaDatos').fadeIn(1000).html(data);    
