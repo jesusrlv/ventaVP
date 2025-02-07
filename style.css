@@ -3,6 +3,8 @@ body{
   background-repeat: repeat-y;
   background-size: 100%; */
   background-color: #333;
+  margin: 0;
+  padding: 0;
   
 }
 #fotosTienda{
@@ -78,7 +80,7 @@ body{
 
   .cardDos img {
     height: 200px; /* Ajusta el tamaño de la imagen */
-    object-fit: contain; /* Evita distorsiones de la imagen */
+    object-fit: cover; /* Evita distorsiones de la imagen */
 }
 
 .cardDos .card-body {
@@ -204,6 +206,18 @@ body{
   to {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+/* Asegurar responsividad en iPhones */
+@media (max-width: 768px) {
+  .cardDos {
+      width: 100%; /* Se ajusta al ancho del dispositivo */
+  }
+
+  .col-md-3 {
+      flex: 0 0 50%; /* Para evitar que se compriman demasiado en pantallas pequeñas */
+      max-width: 50%;
   }
 }
 
