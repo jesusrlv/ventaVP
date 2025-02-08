@@ -279,17 +279,17 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 text-info" href="#">
+              <a class="nav-link d-flex align-items-center gap-2 text-info" href="#" onclick="tablaProdcutos()">
                 <svg class="bi"><use xlink:href="#cart"/></svg>
                 Productos <span id="productosH" hidden><i class="bi bi-arrow-left-circle-fill text-info"></i></span>
               </a>
             </li>
             
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
+              <!-- <a class="nav-link d-flex align-items-center gap-2" href="#">
                 <svg class="bi"><use xlink:href="#graph-up"/></svg>
                 Inventario <span id="inventarioH" hidden><i class="bi bi-arrow-left-circle-fill text-primary"></i></span>
               </a>
-            </li>
+            </li> -->
           </ul>
 
           <hr class="my-3">
@@ -330,28 +330,55 @@
         </div>
       </div>
 
-      <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
-
-      <h4 class="text-secondary"><span id="tituloTipo"></span> (<span id="tituloEstado"></span>)</h4>
-      
-      <div class="table-responsive small">
-        <table class="table align-middle table-striped table-sm">
-          <thead>
-            <tr class="text-center">
-              <th scope="col">#</th>
-              <th scope="col">Clave</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Dirección</th>
-              <th scope="col">Teléfono</th>
-              <th scope="col">Lugar</th>
-              <th scope="col">Estatus</th>
-            </tr>
-          </thead>
-          <tbody id="tablaDatos" class="text-center">
-            
-          </tbody>
-        </table>
+      <!-- tabla entregas -->
+      <div class="container" id="tablaEntregas" hidden>
+        <h4 class="text-secondary"><span id="tituloTipo"></span> (<span id="tituloEstado"></span>)</h4>
+        
+        <div class="table-responsive small">
+          <table class="table align-middle table-striped table-sm">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">Clave</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Lugar</th>
+                <th scope="col">Estatus</th>
+              </tr>
+            </thead>
+            <tbody id="tablaDatos" class="text-center">
+              
+            </tbody>
+          </table>
+        </div>
       </div>
+      <!-- tabla entregas -->
+      <!-- tabla productos -->
+      <div class="container" id="tablaProductos" hidden>
+        <h4 class="text-secondary"><span id="tituloProductos"></span> (<span id="tituloEstado2"></span>)</h4>
+        
+        <div class="table-responsive small">
+          <table class="table align-middle table-striped table-sm">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Oferta</th>
+                <th scope="col">Editar</th>
+                <!-- <th scope="col">Estatus</th> -->
+              </tr>
+            </thead>
+            <tbody id="tablaProductos2" class="text-center">
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- tabla productos -->
     </main>
   </div>
 </div>

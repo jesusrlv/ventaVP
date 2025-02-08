@@ -4,6 +4,8 @@ function tablaDatos(){
     alert("Debes seleccionar un estado");
     return;
   }
+  document.getElementById('tablaEntregas').hidden = false;
+  document.getElementById('tablaProductos').hidden = true;
   $.ajax({
     type: "POST",
     url: "prcd/tabla_pedidos.php",
@@ -16,7 +18,7 @@ function tablaDatos(){
         document.getElementById('pedidosH').hidden = false;
         document.getElementById('entregadosH').hidden = true;
         document.getElementById('noentregadosH').hidden = true;
-        document.getElementById('inventarioH').hidden = true;
+        document.getElementById('productosH').hidden = true;
         document.getElementById('usuariosH').hidden = true;
         $('#tablaDatos').fadeIn(1000).html(data);    
     }
@@ -26,10 +28,12 @@ function tablaDatos(){
 function cambiarTitulo(estado){
   if(estado == 1){
     document.getElementById('tituloEstado').innerText = "Zacatecas";
+    document.getElementById('tituloEstado2').innerText = "Zacatecas";
     tablaDatos();
   }
   if(estado == 2){
     document.getElementById('tituloEstado').innerText = "León, GTO";
+    document.getElementById('tituloEstado2').innerText = "León, GTO";
     tablaDatos()
   }
 }
@@ -41,6 +45,8 @@ function tablaEntregados(){
     return;
   }
   document.getElementById('tituloTipo').innerText = "Entregados";
+  document.getElementById('tablaEntregas').hidden = false;
+  document.getElementById('tablaProductos').hidden = true;
   $.ajax({
     type: "POST",
     url: "prcd/tabla_entregados.php",
@@ -53,7 +59,7 @@ function tablaEntregados(){
         document.getElementById('pedidosH').hidden = true;
         document.getElementById('entregadosH').hidden = false;
         document.getElementById('noentregadosH').hidden = true;
-        document.getElementById('inventarioH').hidden = true;
+        document.getElementById('productosH').hidden = true;
         document.getElementById('usuariosH').hidden = true;    
     }
   });
@@ -65,6 +71,8 @@ function tablaNoEntregados(){
     return;
   }
   document.getElementById('tituloTipo').innerText = "No Entregados";
+  document.getElementById('tablaEntregas').hidden = false;
+  document.getElementById('tablaProductos').hidden = true;
   $.ajax({
     type: "POST",
     url: "prcd/tabla_no_entregados.php",
@@ -78,10 +86,42 @@ function tablaNoEntregados(){
         document.getElementById('pedidosH').hidden = true;
         document.getElementById('entregadosH').hidden = true;
         document.getElementById('noentregadosH').hidden = false;
-        document.getElementById('inventarioH').hidden = true;
+        document.getElementById('productosH').hidden = true;
         document.getElementById('usuariosH').hidden = true;
     }
   });
+}
+
+function tablaProdcutos(){
+  let estado = document.getElementById('selectEstado').value;
+  if(estado == ""){
+    alert("Debes seleccionar un estado");
+    return;
+  }
+  document.getElementById('tituloProductos').innerText = "Inventario";
+  document.getElementById('tablaEntregas').hidden = true;
+  document.getElementById('tablaProductos').hidden = false;
+  $.ajax({
+    type: "POST",
+    url: "prcd/tabla_productos.php",
+    data:{
+      estado:estado
+    },
+    dataType: "html",
+    success: function(data){
+        $('#tablaProductos2').fadeIn(1000).html(data);  
+        
+        document.getElementById('pedidosH').hidden = true;
+        document.getElementById('entregadosH').hidden = true;
+        document.getElementById('noentregadosH').hidden = true;
+        document.getElementById('productosH').hidden = false;
+        document.getElementById('usuariosH').hidden = true;
+    }
+  });
+}
+
+function editarProducto(id){
+
 }
 
 function cambiarEstatus(id,estatus){
@@ -119,53 +159,3 @@ function cambiarEstatus(id,estatus){
   }
 
 }
-
-/* globals Chart:false */
-
-(() => {
-  'use strict'
-
-  // Graphs
-  const ctx = document.getElementById('myChart')
-  // eslint-disable-next-line no-unused-vars
-  const myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: [
-        'Sunday',
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday'
-      ],
-      datasets: [{
-        data: [
-          15339,
-          21345,
-          18483,
-          24003,
-          23489,
-          24092,
-          12034
-        ],
-        lineTension: 0,
-        backgroundColor: 'transparent',
-        borderColor: '#007bff',
-        borderWidth: 4,
-        pointBackgroundColor: '#007bff'
-      }]
-    },
-    options: {
-      plugins: {
-        legend: {
-          display: false
-        },
-        tooltip: {
-          boxPadding: 3
-        }
-      }
-    }
-  })
-})()
