@@ -13,6 +13,11 @@ function tablaDatos(){
     dataType: "html",
     success: function(data){
         document.getElementById('tituloTipo').innerText = "Pedidos";
+        document.getElementById('pedidosH').hidden = false;
+        document.getElementById('entregadosH').hidden = true;
+        document.getElementById('noentregadosH').hidden = true;
+        document.getElementById('inventarioH').hidden = true;
+        document.getElementById('usuariosH').hidden = true;
         $('#tablaDatos').fadeIn(1000).html(data);    
     }
   });
@@ -44,7 +49,12 @@ function tablaEntregados(){
     },
     dataType: "html",
     success: function(data){
-        $('#tablaDatos').fadeIn(1000).html(data);    
+        $('#tablaDatos').fadeIn(1000).html(data);
+        document.getElementById('pedidosH').hidden = true;
+        document.getElementById('entregadosH').hidden = false;
+        document.getElementById('noentregadosH').hidden = true;
+        document.getElementById('inventarioH').hidden = true;
+        document.getElementById('usuariosH').hidden = true;    
     }
   });
 }
@@ -63,7 +73,13 @@ function tablaNoEntregados(){
     },
     dataType: "html",
     success: function(data){
-        $('#tablaDatos').fadeIn(1000).html(data);    
+        $('#tablaDatos').fadeIn(1000).html(data);  
+        
+        document.getElementById('pedidosH').hidden = true;
+        document.getElementById('entregadosH').hidden = true;
+        document.getElementById('noentregadosH').hidden = false;
+        document.getElementById('inventarioH').hidden = true;
+        document.getElementById('usuariosH').hidden = true;
     }
   });
 }
