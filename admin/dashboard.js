@@ -31,11 +31,11 @@ function cambiarTitulo(estado){
 
 function tablaEntregados(){
   let estado = document.getElementById('selectEstado').value;
-  document.getElementById('tituloTipo').innerText = "Entregados";
   if(estado == ""){
     alert("Debes seleccionar un estado");
     return;
   }
+  document.getElementById('tituloTipo').innerText = "Entregados";
   $.ajax({
     type: "POST",
     url: "prcd/tabla_entregados.php",
@@ -50,11 +50,11 @@ function tablaEntregados(){
 }
 function tablaNoEntregados(){
   let estado = document.getElementById('selectEstado').value;
-  document.getElementById('tituloTipo').innerText = "No Entregados";
   if(estado == ""){
     alert("Debes seleccionar un estado");
     return;
   }
+  document.getElementById('tituloTipo').innerText = "No Entregados";
   $.ajax({
     type: "POST",
     url: "prcd/tabla_no_entregados.php",
