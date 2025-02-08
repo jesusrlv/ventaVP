@@ -249,7 +249,7 @@
               <div class="d-flex justify-content-center align-items-center gap-2">
                 <div class="input-group mb-3 mt-3 w-75">
                   <span class="input-group-text" id="basic-addon1"><i class="bi bi-globe-americas"></i></span>
-                  <select class="form-select" aria-label="Default select example" id="selectEstado" onchange="">
+                  <select class="form-select" aria-label="Default select example" id="selectEstado" onchange="cambiarTitulo(this.value)">
                     <option value="" selected>Estado ...</option>
                     <option value="1">Zacatecas</option>
                     <option value="2">León, GTO</option>
@@ -332,7 +332,7 @@
 
       <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
 
-      <h4 class="text-secondary">Pedidos</h4>
+      <h4 class="text-secondary">Pedidos (<span id="tituloEstado"></span>)</h4>
       
       <div class="table-responsive small">
         <table class="table align-middle table-striped table-sm">

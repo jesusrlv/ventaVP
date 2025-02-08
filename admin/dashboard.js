@@ -16,6 +16,16 @@ function tablaDatos(){
     }
   });
 }
+
+function cambiarTitulo(estado){
+  if(estado == 1){
+    document.getElementById('tituloEstado').innerText = "Zacatecas";
+  }
+  if(estado == 2){
+    document.getElementById('tituloEstado').innerText = "León, GTO";
+  }
+}
+
 function tablaEntregados(){
   let estado = document.getElementById('selectEstado').value;
   if(estado == ""){
@@ -51,6 +61,42 @@ function tablaNoEntregados(){
         $('#tablaDatos').fadeIn(1000).html(data);    
     }
   });
+}
+
+function cambiarEstatus(id,estatus){
+  if (confirm("¿Cambiar el estatus?")) {
+    $.ajax({
+      type: "POST",
+      url: "prcd/cambiar_estatus.php",
+      data:{
+        id:id,
+        estatus:estatus
+      },
+      dataType: "html",
+      success: function(data){
+        var datos = JSON.parse(JSON.stringify(data));
+
+        var success = datos.success;
+
+        if(success = 1){
+          alert("Estatus cambiado");
+          if(estatus == 0){
+            tablaNoEntregados();
+          }
+          else if(estatus == 1){
+            tablaEntregados();
+          }
+        }
+        else{
+          alert("No se cambió el estatus");
+        }
+      }
+    });
+  }
+  else{
+    alert("No se cambió el estatus");
+  }
+
 }
 
 /* globals Chart:false */

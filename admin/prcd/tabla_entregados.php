@@ -34,13 +34,13 @@ while($row = $resultado->fetch_assoc()){
 
     if(IS_NULL($row['entregado']) || $row['entregado'] == 0){
         echo'
-        <td><span class="badge text-bg-danger"><i class="bi bi-x-circle-fill mt-2"></i> No entregado</span></td>
+        <td><a href="#" onclick="cambiarEstatus('.$row['id'].',1)"><span class="badge text-bg-danger"><i class="bi bi-x-circle-fill mt-2"></i> No entregado</span></a></td>
 
         ';
     }
     else{
         echo'
-        <td><span class="badge text-bg-success"><i class="bi bi-check-circle-fill mt-2"></i> Entregado</span></td>
+        <td><a href="#" onclick="cambiarEstatus('.$row['id'].',0)"><span class="badge text-bg-success"><i class="bi bi-check-circle-fill mt-2"></i> Entregado</span></a></td>
         ';
     }
         
