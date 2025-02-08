@@ -12,6 +12,7 @@ function tablaDatos(){
     },
     dataType: "html",
     success: function(data){
+        document.getElementById('tituloTipo').innerText = "Pedidos";
         $('#tablaDatos').fadeIn(1000).html(data);    
     }
   });
@@ -20,14 +21,17 @@ function tablaDatos(){
 function cambiarTitulo(estado){
   if(estado == 1){
     document.getElementById('tituloEstado').innerText = "Zacatecas";
+    tablaDatos();
   }
   if(estado == 2){
     document.getElementById('tituloEstado').innerText = "León, GTO";
+    tablaDatos()
   }
 }
 
 function tablaEntregados(){
   let estado = document.getElementById('selectEstado').value;
+  document.getElementById('tituloTipo').innerText = "Entregados";
   if(estado == ""){
     alert("Debes seleccionar un estado");
     return;
@@ -46,6 +50,7 @@ function tablaEntregados(){
 }
 function tablaNoEntregados(){
   let estado = document.getElementById('selectEstado').value;
+  document.getElementById('tituloTipo').innerText = "No Entregados";
   if(estado == ""){
     alert("Debes seleccionar un estado");
     return;
