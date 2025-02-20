@@ -385,3 +385,60 @@
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 <script src="dashboard.js"></script></body>
 </html>
+
+<!-- Modal editar producto-->
+<div class="modal fade" id="editarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar producto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Descripción</span>
+          <input type="text" class="form-control" placeholder="Descripción" aria-label="Descripción" aria-describedby="basic-addon1" id="descripcionProducto">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Categoría</span>
+          <select class="form-select" aria-label="Default select example" id="categoriaProducto">
+            <option selected>Selecciona la categoría ...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Estado</span>
+          <select class="form-select" aria-label="Default select example" id="estadoProducto">
+            <option selected>Selecciona el estado ...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Precio</span>
+          <input type="text" class="form-control" placeholder="Precio" aria-label="Precio" aria-describedby="basic-addon1" id="precioProducto">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Oferta</span>
+          <select class="form-select" aria-label="Default select example" id="ofertaProducto">
+            <option selected>Estado de oferta ...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
+        <button type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i> Editar producto</button>
+      </div>
+    </div>
+  </div>
+</div>
+

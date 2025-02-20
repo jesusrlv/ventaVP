@@ -121,7 +121,7 @@ function tablaProdcutos(){
 }
 
 function editarProducto(id){
-
+  $('#editarProducto').modal('show');
 }
 
 function cambiarEstatus(id,estatus){
