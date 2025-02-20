@@ -144,6 +144,16 @@ function datosCategoria(){
     }
   });
 }
+function datosCategoria2(){
+  $.ajax({
+    type: "POST",
+    url: "prcd/categorias.php",
+    dataType: "html",
+    success: function(data){
+        $('#categoriaProductoNew').html(data);  
+    }
+  });
+}
 
 function editarProducto2(){
   if (confirm("¿Editar el producto?")) {
@@ -235,6 +245,14 @@ function limpiarCampos(){
   document.getElementById('ofertaProducto').value = "";
   document.getElementById('precioProducto').value = "";
 }
+function limpiarCampos2(){
+  document.getElementById('descripcionProductoNew').value = "";
+  document.getElementById('categoriaProductoNew').value = "";
+  document.getElementById('cantidadZacatecas').value = "";
+  document.getElementById('cantidadLeon').value = "";
+  document.getElementById('ofertaProductoNew').value = "";
+  document.getElementById('precioProductoNew').value = "";
+}
 
 function checarSession(){
   $.ajax({
@@ -296,3 +314,55 @@ $(document).ready(function () {
       });
   });
 });
+
+function modalNuevoProducto(){
+  $('#nuevoProducto').modal('show');
+  datosCategoria2();
+
+}
+
+function agregarProducto(){
+
+    var descripcion = document.getElementById('descripcionProductoNew').value;
+    var categoria = document.getElementById('categoriaProductoNew').value;
+    var cantidadZac = document.getElementById('cantidadZacatecas').value;
+    var cantidadLeon = document.getElementById('cantidadLeon').value;
+    var oferta = document.getElementById('ofertaProductoNew').value;
+    var precio = document.getElementById('precioProductoNew').value;
+
+    if(descripcion == "" || categoria == "" || cantidadZac == "" || cantidadLeon == "" || oferta == "" || precio == "" ){
+      alert("Debes llenar todos los campos");
+      return;
+    }
+
+    $.ajax({
+      type: "POST",
+      url: "prcd/nuevo_producto.php",
+      data:{
+        descripcion:descripcion,
+        categoria:categoria,
+        cantidadZac:cantidadZac,
+        cantidadLeon:cantidadLeon,
+        oferta:oferta,
+        precio:precio
+        
+      },
+      dataType: "json",
+      success: function(data){
+        var datos = JSON.parse(JSON.stringify(data));
+
+        var success = datos.success;
+
+        if(success = 1){
+          alert("Producto guardado");
+          tablaProdcutos();
+          $('#nuevoProducto').modal('hide');
+          limpiarCampos2();
+        }
+        else{
+          alert("No se guardó");
+        }
+      }
+    });
+  
+}

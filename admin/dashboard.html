@@ -319,13 +319,10 @@
         
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="modalNuevoProducto()"><i class="bi bi-plus-circle"></i> Agregar producto</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-plus-circle"></i> Agregar categoría</button>
           </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
-            <svg class="bi"><use xlink:href="#calendar3"/></svg>
-            This week
-          </button>
+          
         </div>
       </div>
 
@@ -390,6 +387,55 @@
 <script src="dashboard.js"></script></body>
 </html>
 
+<!-- Modal agregar producto-->
+<div class="modal fade" id="nuevoProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo producto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Descripción</span>
+          <input type="text" class="form-control" placeholder="Descripción" aria-label="Descripción" aria-describedby="basic-addon1" id="descripcionProductoNew">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Categoría</span>
+          <select class="form-select" aria-label="Default select example" id="categoriaProductoNew">
+            
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Zacatecas</span>
+          <input type="text" class="form-control" placeholder="Cantidad Zac" aria-label="Cantidad Zac" aria-describedby="basic-addon1" id="cantidadZacatecas">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">León</span>
+          <input type="text" class="form-control" placeholder="Cantidad León" aria-label="Cantidad León" aria-describedby="basic-addon1" id="cantidadLeon">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Precio</span>
+          <input type="text" class="form-control" placeholder="Precio" aria-label="Precio" aria-describedby="basic-addon1" id="precioProductoNew">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Oferta</span>
+          <select class="form-select" aria-label="Default select example" id="ofertaProductoNew">
+            <option value="" selected>Estado de oferta ...</option>
+            <option value="1">Si</option>
+            <option value="0">No</option>
+          </select>
+        </div>
+
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="agregarProducto()"><i class="bi bi-pencil-square"></i> Guardar producto</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Modal editar producto-->
 <div class="modal fade" id="editarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
