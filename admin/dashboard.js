@@ -260,3 +260,30 @@ function checarSession(){
 function redirigir() {
   window.location.href = "../index.html"; // Cambia por la URL a la que quieres redirigir
 }
+
+function eliminarProducto(id){
+  if (confirm("Eliminar el producto?")) {
+    $.ajax({
+      type: "POST",
+      url: "prcd/eliminarProducto.php",
+      data:{
+        id:id
+      },
+      dataType: "json",
+      success: function(data){
+          
+        var datos = JSON.parse(JSON.stringify(data));
+        var success = datos.success;
+  
+        if(success == 1){
+          alert("Prodducto eliminado");
+          tablaProdcutos();
+        }
+        else if(success == 0){
+          alert("Producto no eliminado");
+        }
+  
+      }
+    });
+  }
+}

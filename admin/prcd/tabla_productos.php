@@ -37,6 +37,11 @@ while($row = $resultado->fetch_assoc()){
                 <i class="bi bi-pencil-square text-danger"></i>
             </a>
         </td>
+        <td>
+            <a href="#" onclick="eliminarProducto('.$row['id'].')">
+                <i class="bi bi-trash3-fill text-danger"></i>
+            </a>
+        </td>
         ';
         
         echo'
