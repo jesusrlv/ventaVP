@@ -33,7 +33,7 @@ while($row = $resultado->fetch_assoc()){
         <td>'.$row['precio'].'</td>
         <td>'.$row['oferta'].'</td>
         <td>
-            <a href="#" onclick="editarProducto('.$row['id'].', \''.addslashes($row['descripcion']).'\', \''.addslashes($row['categoria']).'\', \''.addslashes($row['estado']).'\', '.$estado2.', '.$row['oferta'].')">
+            <a href="#" onclick="editarProducto('.$row['id'].', \''.addslashes($row['descripcion']).'\', \''.addslashes($row['categoria']).'\', \''.addslashes($estado).'\', '.$estado2.', '.$row['precio'].', '.$row['oferta'].')">
                 <i class="bi bi-pencil-square text-danger"></i>
             </a>
         </td>

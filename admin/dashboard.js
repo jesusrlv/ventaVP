@@ -120,13 +120,72 @@ function tablaProdcutos(){
   });
 }
 
-function editarProducto(id){
+function editarProducto(id, descripcion, categoria, estado, cantidad, precio,  oferta){
   $('#editarProducto').modal('show');
   datosCategoria();
+
+  document.getElementById('idProducto').value = id;
+  document.getElementById('descripcionProducto').value = descripcion;
+  document.getElementById('categoriaProducto').value = categoria;
+  document.getElementById('estadoProducto').value = estado;
+  document.getElementById('cantidadProducto').value = cantidad;
+  document.getElementById('ofertaProducto').value = oferta;
+  document.getElementById('precioProducto').value = precio;
 }
 
 function datosCategoria(){
+  $.ajax({
+    type: "POST",
+    url: "prcd/categorias.php",
+    dataType: "html",
+    success: function(data){
+        $('#categoriaProducto').html(data);  
+    }
+  });
+}
 
+function editarProducto2(){
+  if (confirm("¿Editar el producto?")) {
+    var id = document.getElementById('idProducto').value;
+    var descripcion = document.getElementById('descripcionProducto').value;
+    var categoria = document.getElementById('categoriaProducto').value;
+    var estado = document.getElementById('estadoProducto').value;
+    var cantidad = document.getElementById('cantidadProducto').value;
+    var oferta = document.getElementById('ofertaProducto').value;
+    var precio = document.getElementById('precioProducto').value;
+    $.ajax({
+      type: "POST",
+      url: "prcd/editar_producto.php",
+      data:{
+        id:id,
+        descripcion:descripcion,
+        categoria:categoria,
+        estado:estado,
+        cantidad:cantidad,
+        oferta:oferta,
+        precio:precio
+        
+      },
+      dataType: "json",
+      success: function(data){
+        var datos = JSON.parse(JSON.stringify(data));
+
+        var success = datos.success;
+
+        if(success = 1){
+          alert("Producto editado");
+          tablaProdcutos();$('#editarProducto').modal('hide');
+          limpiarCampos()
+        }
+        else{
+          alert("No se editó");
+        }
+      }
+    });
+  }
+  else{
+    alert("No se editó");
+  }
 }
 
 function cambiarEstatus(id,estatus){
@@ -163,4 +222,18 @@ function cambiarEstatus(id,estatus){
     alert("No se cambió el estatus");
   }
 
+}
+
+function limpiarCampos(){
+  document.getElementById('idProducto').value = "";
+  document.getElementById('descripcionProducto').value = "";
+  document.getElementById('categoriaProducto').value = "";
+  document.getElementById('estadoProducto').value = "";
+  document.getElementById('cantidadProducto').value = "";
+  document.getElementById('ofertaProducto').value = "";
+  document.getElementById('precioProducto').value = "";
+}
+
+function checarSession(){
+  
 }
