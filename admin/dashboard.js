@@ -122,6 +122,11 @@ function tablaProdcutos(){
 
 function editarProducto(id){
   $('#editarProducto').modal('show');
+  datosCategoria();
+}
+
+function datosCategoria(){
+
 }
 
 function cambiarEstatus(id,estatus){

@@ -17,11 +17,13 @@ while($row = $resultado->fetch_assoc()){
         <td>'.$row['categoria'].'</td>';
 
         if($estado == 1){
+            $estado2 = $row['zac'];
             echo'
             <td>'.$row['zac'].'</td>
             ';
         }
         else if($estado == 2){
+            $estado2 = $row['leon'];
             echo'
             <td>'.$row['leon'].'</td>
             ';
@@ -31,7 +33,7 @@ while($row = $resultado->fetch_assoc()){
         <td>'.$row['precio'].'</td>
         <td>'.$row['oferta'].'</td>
         <td>
-            <a href="#" onclick="editarProducto('.$row['id'].')">
+            <a href="#" onclick="editarProducto('.$row['id'].', \''.addslashes($row['descripcion']).'\', \''.addslashes($row['categoria']).'\', \''.addslashes($row['estado']).'\', '.$estado2.', '.$row['oferta'].')">
                 <i class="bi bi-pencil-square text-danger"></i>
             </a>
         </td>
