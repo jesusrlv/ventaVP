@@ -103,7 +103,7 @@
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
   </head>
-  <body onload="tablaDatos()">
+  <body onload="checarSession();">
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -364,7 +364,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Descripción</th>
                 <th scope="col">Categoría</th>
-                <th scope="col">Estado</th>
+                <th scope="col">Cantidad</th>
                 <th scope="col">Precio</th>
                 <th scope="col">Oferta</th>
                 <th scope="col">Editar</th>
@@ -429,6 +429,39 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
         <button type="button" class="btn btn-primary" onclick="editarProducto2()"><i class="bi bi-pencil-square"></i> Editar producto</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Acceso-->
+<div class="modal fade" id="modalAcceso" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Acceso</h1>
+      </div>
+      <div class="modal-body">
+        Acceso correcto
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"  onclick="tablaDatos();">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal No Acceso-->
+<div class="modal fade bg-danger" id="modalAcceso2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Vape Factory</h1>
+      </div>
+      <div class="modal-body text-center">
+        Sin acceso
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="redirigir()">Regresar</button>
       </div>
     </div>
   </div>

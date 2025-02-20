@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require('conn.php');
 
@@ -9,12 +10,14 @@ $query = "SELECT * FROM usr WHERE usr = '$usr' AND pwd = '$pwd'";
 $resultado = $conn->query($query);
 $filas = $resultado->num_rows;
 
-if($filas == 1){
+if($filas == 1){ 
+    $_SESSION['sess'] = 1;
     echo json_encode(array(
         'success'=>1
     ));
 }
 else{
+    $_SESSION['sess'] = "";
     echo json_encode(array(
         'success'=>0
     ));

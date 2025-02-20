@@ -1,4 +1,5 @@
 function tablaDatos(){
+  $('#modalAcceso').modal('hide');
   let estado = document.getElementById('selectEstado').value;
   if(estado == ""){
     alert("Debes seleccionar un estado");
@@ -174,7 +175,8 @@ function editarProducto2(){
 
         if(success = 1){
           alert("Producto editado");
-          tablaProdcutos();$('#editarProducto').modal('hide');
+          tablaProdcutos();
+          $('#editarProducto').modal('hide');
           limpiarCampos()
         }
         else{
@@ -235,5 +237,26 @@ function limpiarCampos(){
 }
 
 function checarSession(){
-  
+  $.ajax({
+    type: "POST",
+    url: "prcd/session.php",
+    dataType: "json",
+    success: function(data){
+        
+      var datos = JSON.parse(JSON.stringify(data));
+      var success = datos.success;
+
+      if(success == 1){
+        $('#modalAcceso').modal('show');
+      }
+      else if(success == 0){
+        $('#modalAcceso2').modal('show');
+      }
+
+    }
+  });
+}
+
+function redirigir() {
+  window.location.href = "../index.html"; // Cambia por la URL a la que quieres redirigir
 }
