@@ -121,7 +121,7 @@ function tablaProdcutos(){
   });
 }
 
-function editarProducto(id, descripcion, categoria, estado, cantidad, precio,  oferta){
+function editarProducto(id, descripcion, categoria, estado, cantidad, precio, oferta){
   $('#editarProducto').modal('show');
   datosCategoria();
 
@@ -147,7 +147,7 @@ function datosCategoria(){
 function datosCategoria2(){
   $.ajax({
     type: "POST",
-    url: "prcd/categorias.php",
+    url: "prcd/categorias2.php",
     dataType: "html",
     success: function(data){
         $('#categoriaProductoNew').html(data);  
