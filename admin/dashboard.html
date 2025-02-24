@@ -543,24 +543,45 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-success"><i class="bi bi-bookmark-plus"></i> Nueva categoría</button>
+        <button type="button" class="btn btn-success" onclick="agregarCategoria()"><i class="bi bi-bookmark-plus"></i> Nueva categoría</button>
       </div>
     </div>
   </div>
 </div>
 <!-- segundo modal -->
-<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+<div class="modal fade" id="modalAgregarC" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Nueva categoría</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Hide this modal and show the first with the button below.
+        <!-- Input Categoría -->
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Categoría</span>
+          <input type="text" class="form-control" placeholder="Nombre Categoría" aria-label="Nombre Categoría" aria-describedby="basic-addon1" id="agregarCategoriaInput">
+        </div>
+      
+        <!-- Input Precio -->
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Precio</span>
+          <input type="text" class="form-control" placeholder="Precio" aria-label="Precio" aria-describedby="basic-addon1" id="agregarPrecioInput">
+        </div>
+
+        <!-- Input Imagen (archivo) -->
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Imagen</span>
+          <input type="file" accept="image/png, image/jpg, image/jpeg" class="form-control" aria-label="Imagen" aria-describedby="basic-addon1" id="agregarImagenInput">
+        </div>
+        <progress id="progressBar" value="0" max="100" style="width:100%;"></progress>
+        <small id="status"></small>
+        <p id="loaded_n_total"></p>
+        
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+        <button class="btn btn-primary" data-bs-target="#modalCategoria" data-bs-toggle="modal">Regresar</button>
+        <button class="btn btn-success"> Guardar categoría</button>
       </div>
     </div>
   </div>
