@@ -8,6 +8,12 @@ $filas = $resultado->num_rows;
 if ($filas > 0){
     $x = 0;
     while($row = $resultado->fetch_assoc()){
+
+        $img = $row['categoria'];
+        $sqlImagen = "SELECT * FROM categoria WHERE categoria = '$img'";
+        $resultadoImg = $conn->query($sqlImagen);
+        $rowImg = $resultadoImg->fetch_assoc();
+
         $x++;
         if($x == 1){
         echo'
@@ -20,7 +26,7 @@ if ($filas > 0){
         ';    
         }
         echo '
-            <img src="productos/'.$row['ruta'].'" class="d-block w-100 imagenOfertas" alt="...">
+            <img src="productos/'.$rowImg['img'].'" class="d-block w-100 imagenOfertas bg-light" alt="...">
 
             <!-- Etiqueta "Ofertas" en la esquina superior izquierda -->
             <div class="position-absolute top-0 start-0 bg-warning text-dark text-center p-2 w-50 display-6" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
