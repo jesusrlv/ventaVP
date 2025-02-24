@@ -1,3 +1,21 @@
+function dateHoy(){
+  // Obtener el elemento input
+  const inputFecha = document.getElementById('datePedidos');
+
+  // Obtener la fecha actual
+  const fechaActual = new Date();
+
+  // Formatear la fecha en el formato YYYY-MM-DD
+  const año = fechaActual.getFullYear();
+  const mes = String(fechaActual.getMonth() + 1).padStart(2, '0'); // Los meses van de 0 a 11
+  const dia = String(fechaActual.getDate()).padStart(2, '0');
+
+  const fechaFormateada = `${año}-${mes}-${dia}`;
+
+  // Asignar la fecha formateada al valor del input
+  inputFecha.value = fechaFormateada;
+}
+
 function tablaDatos(){
   $('#modalAcceso').modal('hide');
   let estado = document.getElementById('selectEstado').value;
