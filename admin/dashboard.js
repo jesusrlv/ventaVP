@@ -412,25 +412,40 @@ function guardarCategoria(){
 
     function progressHandler(event) {
 
-        _("loaded_n_total"+doc).innerHTML = "Cargado " + event.loaded + " bytes de " + event.total;
+        _("loaded_n_total").innerHTML = "Cargado " + event.loaded + " bytes de " + event.total;
         var percent = (event.loaded / event.total) * 100;
-        _("progressBar"+doc).value = Math.round(percent);
-        _("status"+doc).innerHTML = Math.round(percent) + "% subido... espere un momento";
+        _("progressBar").value = Math.round(percent);
+        _("status").innerHTML = Math.round(percent) + "% subido... espere un momento";
       }
       
       function completeHandler(event) {
-        _("status"+doc).innerHTML = event.target.responseText;
-        _("progressBar"+doc).value = 0; //wil clear progress bar after successful upload
-          _("file"+doc).style.display='none';
-          _("progressBar"+doc).style.display='none';
+        _("loaded_n_total").innerHTML = "";
+        _("status").innerHTML = "";
+        _("progressBar").value = 0; //wil clear progress bar after successful upload
+          // _("agregarImagenInput").style.display='none';
+          // _("agregarImagenInput").hidden = true;
+          _("agregarImagenInput").value = "";
+          // _("progressBar").style.display='none';
+          _("progressBar").value = "";
+          _("agregarCategoriaInput").value = "";
+          _("agregarPrecioInput").value = "";
+          // _("btnGuardarProd").disabled = true;
+        
+        if(confirm("Categoría cargada correctamente, ¿Deseas agregar una nueva?")){
+          console.log("Nueva categoría");
+        }
+        else{
+          $('#modalCategoria').modal('show');
+          $('#modalAgregarC').modal('hide');
+          modalCategoria();
+        }
       }
-      
       function errorHandler(event) {
-        _("status"+doc).innerHTML = "Fallo en la subida";
+        _("status").innerHTML = "Fallo en la subida";
       }
       
       function abortHandler(event) {
-        _("status"+doc).innerHTML = "Fallo en la subida";
+        _("status").innerHTML = "Fallo en la subida";
       }
     
 }
