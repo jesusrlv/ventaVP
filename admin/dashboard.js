@@ -366,3 +366,19 @@ function agregarProducto(){
     });
   
 }
+
+function modalCategoria(){
+  $('#modalCategoria').modal('show');
+  $.ajax({
+    type: "POST",
+    url: "prcd/categoriaCatalogo.php",
+    dataType: "html",
+    success: function(data){
+        $('#tablaCategoria').html(data);  
+    }
+  });
+}
+
+function agregarCategoria(){
+
+}
