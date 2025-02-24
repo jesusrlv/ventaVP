@@ -13,7 +13,7 @@ while($row = $resultado->fetch_assoc()){
         <th scope="row"><img src="../productos/'.$row['img'].'" width="50"></th>
         <td>'.$row['categoria'].'</td>
         <td>'.$row['precio'].'</td>
-        <td><a href=""><i class="bi bi-trash3-fill text-danger"></i></a></td>
+        <td><a href="#" onclick="deleteCategoria('.$row['id'].')"><i class="bi bi-trash3-fill text-danger"></i></a></td>
     </tr>
     ';
 }

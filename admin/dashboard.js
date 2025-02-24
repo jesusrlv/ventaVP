@@ -449,3 +449,33 @@ function guardarCategoria(){
       }
     
 }
+
+function deleteCategoria(id){
+  if(confirm("¿Deseas elimiar la categoría?")){
+    $.ajax({
+      type: "POST",
+      url: "prcd/eliminarCategoria.php",
+      data:{
+        id:id
+      },
+      dataType: "json",
+      success: function(data){
+          
+        var datos = JSON.parse(JSON.stringify(data));
+        var success = datos.success;
+  
+        if(success == 1){
+          alert("Categoría eliminada");
+          modalCategoria();
+        }
+        else if(success == 0){
+          alert("Categoría no eliminada");
+        }
+  
+      }
+    });
+  }
+  else{
+    console.log("No eliminado");
+  }
+}
