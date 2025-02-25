@@ -27,7 +27,16 @@ function accesos(){
             title: 'Usuario correcto',
             text: 'Credenciales correctas',
             confirmButtonColor: '#3085d6',
-            footer: 'Vape Factory'
+            footer: 'Vape Factory',
+            // Personalización del contenedor de la imagen
+            didOpen: () => {
+                const image = Swal.getImage();
+                if (image) {
+                    image.style.borderRadius = '50%'; // Fondo redondo
+                    image.style.backgroundColor = '#343435'; // Color de fondo
+                    image.style.padding = '10px'; // Espaciado interno
+                }
+            }
         }).then(function(){window.location='dashboard.html';});
         }
         else

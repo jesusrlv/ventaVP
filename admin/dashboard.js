@@ -19,7 +19,8 @@ function dateHoy(){
 function tablaDatos(){
   $('#modalAcceso').modal('hide');
   let estado = document.getElementById('selectEstado').value;
-  let fecha = document.getElementById('selectFecha').value;
+  let fecha = document.getElementById('datePedidos').value;
+  document.getElementById("idFiltro").value = 1;
   if(estado == ""){
     alert("Debes seleccionar un estado");
     return;
@@ -34,7 +35,8 @@ function tablaDatos(){
     type: "POST",
     url: "prcd/tabla_pedidos.php",
     data:{
-      estado:estado
+      estado:estado,
+      fecha:fecha
     },
     dataType: "html",
     success: function(data){
@@ -64,7 +66,13 @@ function cambiarTitulo(estado){
 
 function tablaEntregados(){
   let estado = document.getElementById('selectEstado').value;
+  let fecha = document.getElementById('datePedidos').value;
+  _("idFiltro").value = 2;
   if(estado == ""){
+    alert("Debes seleccionar un estado");
+    return;
+  }
+  if(fecha == ""){
     alert("Debes seleccionar un estado");
     return;
   }
@@ -75,7 +83,8 @@ function tablaEntregados(){
     type: "POST",
     url: "prcd/tabla_entregados.php",
     data:{
-      estado:estado
+      estado:estado,
+      fecha:fecha
     },
     dataType: "html",
     success: function(data){
@@ -90,7 +99,13 @@ function tablaEntregados(){
 }
 function tablaNoEntregados(){
   let estado = document.getElementById('selectEstado').value;
+  let fecha = document.getElementById('datePedidos').value;
+  _("idFiltro").value = 3;
   if(estado == ""){
+    alert("Debes seleccionar un estado");
+    return;
+  }
+  if(fecha == ""){
     alert("Debes seleccionar un estado");
     return;
   }
@@ -101,7 +116,8 @@ function tablaNoEntregados(){
     type: "POST",
     url: "prcd/tabla_no_entregados.php",
     data:{
-      estado:estado
+      estado:estado,
+      fecha:fecha
     },
     dataType: "html",
     success: function(data){
@@ -501,4 +517,18 @@ function deleteCategoria(id){
   else{
     console.log("No eliminado");
   }
+}
+
+function filtrarDate(){
+    let datosFiltro = _("idFiltro").value;
+
+    if(datosFiltro == 1){
+      tablaDatos();
+    }
+    else if(datosFiltro == 2){
+      tablaEntregados();
+    }
+    else if(datosFiltro == 3){
+      tablaNoEntregados();
+    }
 }

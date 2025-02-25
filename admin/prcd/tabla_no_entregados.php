@@ -3,10 +3,14 @@
 require('conn.php');
 
 $estado = $_POST['estado'];
+$fecha = $_POST['fecha'];
 $x = 0;
 
-$sql = "SELECT * FROM venta_completa WHERE entregado != 1 AND estado = '$estado' ORDER BY id DESC";
-$resultado = $conn->query($sql);
+$sql = "SELECT * FROM venta_completa 
+        WHERE (entregado != 1 OR entregado IS NULL) 
+        AND estado = '$estado' 
+        AND DATE(fecha_registro) = '$fecha' 
+        ORDER BY id DESC";$resultado = $conn->query($sql);
 while($row = $resultado->fetch_assoc()){
 
     $id = $row['identificador'];
