@@ -19,7 +19,12 @@ function dateHoy(){
 function tablaDatos(){
   $('#modalAcceso').modal('hide');
   let estado = document.getElementById('selectEstado').value;
+  let fecha = document.getElementById('selectFecha').value;
   if(estado == ""){
+    alert("Debes seleccionar un estado");
+    return;
+  }
+  if(fecha == ""){
     alert("Debes seleccionar un estado");
     return;
   }
